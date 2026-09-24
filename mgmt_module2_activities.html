@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 2 — The Social Business Model Canvas</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4FBF7;--surface:#FFFFFF;--ink:#1A2E1F;--ink-light:#4A6455;--accent:#1A6B3C;--accent-light:#D4F0E0;--border:#C8E0D2;--amber:#D4870A;--amber-light:#FFF3CD;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);min-height:100vh;}
+  .progress-bar-wrap{height:3px;background:var(--border);width:100%;}
+  .progress-bar-fill{height:100%;background:#1AC978;transition:width .4s ease;}
+  .tab-nav{display:flex;background:var(--surface);border-bottom:2px solid var(--border);overflow-x:auto;scrollbar-width:none;position:sticky;top:0;z-index:100;}
+  .tab-nav::-webkit-scrollbar{display:none;}
+  .tab-btn{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;padding:14px 18px;border:none;background:none;cursor:pointer;color:var(--ink-light);white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s;display:flex;align-items:center;gap:6px;}
+  .tab-btn:hover{color:var(--accent);}
+  .tab-btn.active{color:var(--accent);border-bottom-color:var(--accent);}
+  .tab-dot{width:7px;height:7px;border-radius:50%;background:var(--border);flex-shrink:0;transition:background .2s;}
+  .tab-btn.done .tab-dot,.tab-btn.active .tab-dot{background:var(--accent);}
+  .panel{display:none;padding:32px 24px 60px;max-width:720px;margin:0 auto;}
+  .panel.active{display:block;animation:fadeUp .4s ease both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  .panel-tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:4px 10px;border-radius:4px;margin-bottom:14px;}
+  .panel h2{font-family:'DM Serif Display',serif;font-size:clamp(22px,4vw,30px);line-height:1.2;margin-bottom:10px;}
+  .panel-intro{font-size:14px;color:var(--ink-light);line-height:1.65;margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--border);}
+  .time-badge{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;color:var(--ink-light);background:var(--bg);border:1px solid var(--border);border-radius:99px;padding:3px 10px;margin-bottom:20px;}
+  .q-block{margin-bottom:24px;}
+  .q-label{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px;line-height:1.5;}
+  .q-hint{font-size:12px;color:var(--ink-light);margin-bottom:8px;line-height:1.5;font-style:italic;}
+  textarea{width:100%;font-family:'DM Sans',sans-serif;font-size:13px;line-height:1.6;color:var(--ink);background:var(--surface);border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;resize:vertical;min-height:90px;outline:none;transition:border-color .2s;}
+  textarea:focus{border-color:var(--accent);}
+  textarea::placeholder{color:#B0C8BA;}
+  .example-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-light);margin:20px 0 10px;}
+  .callout{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:12px 16px;font-size:13px;line-height:1.6;color:var(--ink);margin:16px 0 24px;}
+  .callout.amber{background:var(--amber-light);border-color:var(--amber);}
+  .callout strong{font-weight:600;}
+  hr.div{border:none;border-top:1px solid var(--border);margin:28px 0;}
+  .cv-block{margin-bottom:12px;padding:14px 16px;background:var(--surface);border:1.5px solid var(--border);border-radius:10px;}
+  .cv-block .cv-label{font-size:12px;font-weight:600;color:var(--accent);margin-bottom:1px;}
+  .cv-block .cv-q{font-size:11px;color:var(--ink-light);font-style:italic;margin-bottom:8px;line-height:1.45;}
+  .cv-block textarea{min-height:58px;}
+  .cv-social .cv-label{color:var(--amber);}
+  .cv-social{border-left:3px solid var(--amber);}
+  .cv-section{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-light);margin:20px 0 10px;}
+  .step-item{display:flex;gap:12px;align-items:flex-start;padding:11px 14px;background:var(--surface);border:1.5px solid var(--border);border-radius:10px;margin-bottom:8px;}
+  .step-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent);color:white;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+  .step-body{flex:1;font-size:13px;line-height:1.5;}
+  .step-body strong{color:var(--ink);font-weight:600;}
+  .step-body span{color:var(--ink-light);}
+  .done-banner{background:var(--accent-light);border:1.5px solid var(--accent);border-radius:12px;padding:20px 24px;text-align:center;display:none;margin-bottom:24px;}
+  .done-banner.show{display:block;animation:fadeUp .4s ease both;}
+  .done-banner h3{font-family:'DM Serif Display',serif;font-size:20px;color:var(--accent);margin-bottom:6px;}
+  .done-banner p{font-size:13px;color:var(--accent);}
+  .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
+  .btn{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;padding:11px 20px;border-radius:9px;border:none;cursor:pointer;transition:all .2s;}
+  .btn-primary{background:var(--accent);color:white;}
+  .btn-primary:hover{background:#135A30;}
+  .btn-next{background:var(--ink);color:white;}
+  .btn-ghost{background:transparent;color:var(--ink-light);border:1.5px solid var(--border);}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(60px);background:var(--ink);color:white;font-size:13px;font-weight:500;padding:10px 20px;border-radius:99px;transition:transform .3s cubic-bezier(.34,1.56,.64,1);z-index:999;white-space:nowrap;}
+  .toast.show{transform:translateX(-50%) translateY(0);}
+  .footer-note{text-align:center;font-size:11px;color:var(--ink-light);padding:20px 24px;border-top:1px solid var(--border);}
+  .pdf-overlay{display:none;position:fixed;inset:0;background:white;z-index:9999;overflow-y:auto;}
+  .pdf-overlay.show{display:block;}
+  .pdf-toolbar{background:#48F89B;color:#0D3D24;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:0;z-index:10;border-bottom:2px solid #1AC978;}
+  .pdf-toolbar-logo{height:28px;width:auto;flex-shrink:0;}
+  .pdf-toolbar-text{font-size:12px;font-weight:500;line-height:1.4;flex:1;color:#0D3D24;}
+  .pdf-toolbar-text strong{font-weight:700;}
+  .pdf-toolbar-text em{font-style:italic;font-weight:600;}
+  .pdf-toolbar-actions{display:flex;gap:8px;flex-shrink:0;}
+  .btn-print{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;padding:7px 14px;border-radius:7px;border:2px solid #0D3D24;background:#0D3D24;color:#48F89B;cursor:pointer;}
+  .btn-close-pdf{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;padding:7px 12px;border-radius:7px;border:1.5px solid rgba(13,61,36,.4);background:transparent;color:#0D3D24;cursor:pointer;}
+  .pdf-content{max-width:680px;margin:0 auto;padding:40px 48px 60px;}
+  .pdf-header{border-bottom:2px solid #48F89B;padding-bottom:16px;margin-bottom:24px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;}
+  .pdf-header-text{flex:1;}
+  .pdf-header-logo{height:36px;width:auto;flex-shrink:0;}
+  .pdf-course-tag{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#1AC978;margin-bottom:6px;}
+  .pdf-title{font-family:'DM Serif Display',serif;font-size:22px;color:#1A1A1A;line-height:1.2;margin-bottom:4px;}
+  .pdf-meta{font-size:12px;color:#6B6560;}
+  .pdf-section-heading{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#1AC978;margin:24px 0 12px;padding-bottom:6px;border-bottom:1px solid #E2DDD8;}
+  .pdf-answer-block{margin-bottom:18px;page-break-inside:avoid;}
+  .pdf-answer-label{font-size:12px;font-weight:600;color:#1A1A1A;margin-bottom:6px;}
+  .pdf-answer-text{font-size:13px;color:#333;line-height:1.7;background:#F0FFF7;border-left:3px solid #48F89B;padding:10px 14px;border-radius:0 6px 6px 0;white-space:pre-wrap;word-wrap:break-word;}
+  .pdf-footer{margin-top:40px;padding-top:14px;border-top:1px solid #E2DDD8;font-size:11px;color:#6B6560;display:flex;justify-content:space-between;align-items:center;}
+  .pdf-footer-logo{height:18px;width:auto;}
+  @media print{*{visibility:hidden;}.pdf-overlay,.pdf-overlay *{visibility:visible;}.pdf-overlay{position:fixed;inset:0;overflow:visible;background:white;}.pdf-toolbar{display:none !important;}.pdf-content{padding:24px 48px;max-width:100%;}@page{margin:1.5cm;size:A4;}}
+
+</style>
+</head>
+<body>
+
+<div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar" style="width:33%"></div></div>
+
+<div class="tab-nav">
+  <button class="tab-btn active" id="tab-0" onclick="showTab(0)"><span class="tab-dot"></span> 1 · What Is a Canvas</button>
+  <button class="tab-btn" id="tab-1" onclick="showTab(1)"><span class="tab-dot"></span> 2 · Build Your Canvas</button>
+  <button class="tab-btn" id="tab-2" onclick="showTab(2)"><span class="tab-dot"></span> 3 · Reflection</button>
+</div>
+
+<div class="panel active" id="panel-0">
+  <div class="panel-tag">Module 2 · Activity 1 of 3</div>
+  <h2>The Business Model on One Page</h2>
+  <div class="time-badge">⏱ About 10 minutes</div>
+  <p class="panel-intro">A business model is the story of how an organisation creates, delivers, and captures value — simple enough to explain in a minute. The Business Model Canvas turns that story into nine building blocks on a single page. The <em>Social</em> Business Model Canvas adds the social mission and impact to the picture.</p>
+
+  <div class="callout">💡 <strong>Model vs. plan:</strong> the business model is the <em>core content</em> — the short story. The business plan is the <em>guide to action</em> — the full story. When a model doesn't work, it's usually because the narrative doesn't make sense, or the numbers don't add up. The canvas is a <strong>dynamic prototype</strong>: v0, v1, v2… you redesign it as you learn.</div>
+
+  <div class="example-label">The nine blocks, in three areas</div>
+  <div class="step-item"><div class="step-num">🏠</div><div class="step-body"><strong>Infrastructure — HOW?</strong> <span>Key Partners · Key Activities · Key Resources</span></div></div>
+  <div class="step-item"><div class="step-num">🎁</div><div class="step-body"><strong>Offer — WHAT?</strong> <span>Value Proposition</span></div></div>
+  <div class="step-item"><div class="step-num">👥</div><div class="step-body"><strong>Customers — FOR WHO?</strong> <span>Customer Relationships · Channels · Customer Segments</span></div></div>
+  <div class="step-item"><div class="step-num">€</div><div class="step-body"><strong>Economic analysis</strong> <span>Cost Structure · Revenue Streams</span></div></div>
+
+  <div class="callout amber">➕ <strong>The social layer:</strong> a Social Business Model Canvas also names your <strong>Social &amp; Environmental Mission</strong>, your <strong>Impact Measures</strong>, and how any <strong>Surplus</strong> is reinvested — so the model captures social value, not just financial value.</div>
+
+  <div class="q-block">
+    <div class="q-label">🧭 Before you build: what social venture or idea will you map? Name it in a sentence.</div>
+    <div class="q-hint">It can be your own idea, one you admire, or one you're inventing now. You'll fill the full canvas next.</div>
+    <textarea id="w1" placeholder="The venture I'll map on the canvas is…" oninput="autosave()"></textarea>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-primary" onclick="saveAndExport()">↓ Save as PDF</button>
+    <button class="btn btn-next" onclick="showTab(1)">Next →</button>
+  </div>
+</div>
+
+<div class="panel" id="panel-1">
+  <div class="panel-tag">Module 2 · Activity 2 of 3</div>
+  <h2>Build Your Social Business Model Canvas</h2>
+  <div class="time-badge">⏱ About 30 minutes</div>
+  <p class="panel-intro">Fill each block for your venture. Keep it short — a few words or a line per block. Remember it's a prototype: you can redraw it as you learn. Start with the Value Proposition and Customer Segments (the heart), then work outward.</p>
+
+  <div class="cv-section">🎁 Offer</div>
+  <div class="cv-block"><div class="cv-label">Value Proposition</div><div class="cv-q">What value do you deliver? Which problem do you solve, for whom?</div><textarea id="c_value" placeholder="We help… by…" oninput="autosave()"></textarea></div>
+
+  <div class="cv-section">👥 Customers</div>
+  <div class="cv-block"><div class="cv-label">Customer Segments</div><div class="cv-q">Who are your customers and beneficiaries? (These can differ.)</div><textarea id="c_segments" placeholder="Our segments are…" oninput="autosave()"></textarea></div>
+  <div class="cv-block"><div class="cv-label">Channels</div><div class="cv-q">How do you reach and deliver to them?</div><textarea id="c_channels" placeholder="We reach them through…" oninput="autosave()"></textarea></div>
+  <div class="cv-block"><div class="cv-label">Customer Relationships</div><div class="cv-q">What relationship do you build with each segment?</div><textarea id="c_relationships" placeholder="We build…" oninput="autosave()"></textarea></div>
+
+  <div class="cv-section">🏠 Infrastructure</div>
+  <div class="cv-block"><div class="cv-label">Key Activities</div><div class="cv-q">What must you do well to deliver the value proposition?</div><textarea id="c_activities" placeholder="Our key activities are…" oninput="autosave()"></textarea></div>
+  <div class="cv-block"><div class="cv-label">Key Resources</div><div class="cv-q">What assets do you need? (people, materials, tech, funding)</div><textarea id="c_resources" placeholder="We need…" oninput="autosave()"></textarea></div>
+  <div class="cv-block"><div class="cv-label">Key Partners</div><div class="cv-q">Who helps you? (suppliers, cooperatives, allies)</div><textarea id="c_partners" placeholder="Our key partners are…" oninput="autosave()"></textarea></div>
+
+  <div class="cv-section">€ Economic analysis</div>
+  <div class="cv-block"><div class="cv-label">Cost Structure</div><div class="cv-q">What are your main costs?</div><textarea id="c_costs" placeholder="Our main costs are…" oninput="autosave()"></textarea></div>
+  <div class="cv-block"><div class="cv-label">Revenue Streams</div><div class="cv-q">How do you earn income to sustain the venture?</div><textarea id="c_revenue" placeholder="We earn revenue through…" oninput="autosave()"></textarea></div>
+
+  <div class="cv-section" style="color:var(--amber);">➕ The social layer</div>
+  <div class="cv-block cv-social"><div class="cv-label">Social &amp; Environmental Mission</div><div class="cv-q">What social or environmental problem are you here to solve?</div><textarea id="c_mission" placeholder="Our mission is…" oninput="autosave()"></textarea></div>
+  <div class="cv-block cv-social"><div class="cv-label">Impact Measures</div><div class="cv-q">How will you know you're creating real social value?</div><textarea id="c_impact" placeholder="We'll measure impact by…" oninput="autosave()"></textarea></div>
+  <div class="cv-block cv-social"><div class="cv-label">Surplus</div><div class="cv-q">What happens to any surplus? How is it reinvested in the mission?</div><textarea id="c_surplus" placeholder="Surplus is reinvested in…" oninput="autosave()"></textarea></div>
+
+  <div class="callout">🎯 <strong>Competitor check:</strong> if you think you have no competitors, you haven't finished the analysis. Who else meets this need today — even imperfectly? Note them, and what makes your model different.</div>
+  <div class="q-block"><div class="q-label">🔍 Who are your competitors or alternatives — and what makes your model different?</div><textarea id="c_competitors" placeholder="Others who meet this need… We differ because…" oninput="autosave()"></textarea></div>
+
+  <div class="actions">
+    <button class="btn btn-primary" onclick="saveAndExport()">↓ Save as PDF</button>
+    <button class="btn btn-ghost" onclick="showTab(0)">← Back</button>
+    <button class="btn btn-next" onclick="showTab(2)">Next →</button>
+  </div>
+</div>
+
+<div class="panel" id="panel-2">
+  <div class="panel-tag">Module 2 · Activity 3 of 3</div>
+  <h2>Reflection</h2>
+  <div class="time-badge">⏱ About 6 minutes</div>
+  <p class="panel-intro">The canvas is a conversation-starter, not a final answer.</p>
+
+  <div class="q-block"><div class="q-label">🧩 Which block was hardest to fill — and what does that tell you about your idea?</div><div class="q-hint">An empty or fuzzy block is a signal, not a failure.</div><textarea id="r1" placeholder="The hardest block was… which tells me…" oninput="autosave();checkDone()"></textarea></div>
+  <div class="q-block"><div class="q-label">💬 If you showed this canvas to a potential co-founder, what's the first question they'd ask?</div><div class="q-hint">The canvas exists to start exactly this kind of conversation.</div><textarea id="r2" placeholder="They'd probably ask…" oninput="autosave();checkDone()"></textarea></div>
+  <div class="q-block"><div class="q-label">🔁 What's the one assumption in your model you most need to test next?</div><div class="q-hint">A canvas is v0. What would move it to v1?</div><textarea id="r3" placeholder="The assumption I most need to test is…" oninput="autosave();checkDone()"></textarea></div>
+
+  <div class="done-banner" id="doneBanner"><h3>✓ Module 2 complete</h3><p>You've built a Social Business Model Canvas for your venture. Save it below before moving to Module 3 — Marketing for Social Impact.</p></div>
+
+  <div class="actions">
+    <button class="btn btn-primary" onclick="saveAndExport()">↓ Save as PDF</button>
+    <button class="btn btn-ghost" onclick="showTab(1)">← Back</button>
+  </div>
+</div>
+
+<div class="pdf-overlay" id="pdfOverlay">
+  <div class="pdf-toolbar">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEcAAABkCAMAAADjVt21AAAACXBIWXMAAAsSAAALEgHS3X78AAAAM1BMVEVHcExI+JtI+JtI+JtI+JtI+JtI+JtI+JtI+JtI+JtI+JtI+JtI+JtI+JtI+JtI+JtI+JsXaIzrAAAAEHRSTlMAMCBAYBDggMDwkNCgULBwaiguQQAAAWtJREFUWMPt2G1ugzAMBuCGfDmBdr7/aYdUdYUBwdjvtvyYD/BIMY5jc7v1GCGLIvgTh1gaY3UQZ46UI8RhLkfSRWeWPjAOM0WMw8VhHC4B4zAHkMMO5JQB4/AIcjiDnHWKDA6BHPYgh0AODyCngpwEchYHszkB5FSQQyBnBDn87/yKM3ZWP7Wz+zX01X9qX/2Z+nq/qK/3PXc1/6DmMdfTvAqan0HzPGa/2DnTn+1fkH2wvZ+29uW0SIpXb+T31Ko7afj1gUtUKY4aLV0cw9Tu6bKI03kXFSi5HHz3+xXmUJmLUJ7qkOQNWVgwrE21P78hD03BnD2g4oJpzynygrmY6tj41Ns2FhUFsxeTpmDEqU7mZ/0ZkJdU6eyl2jqkmhx2IIdAzrajadeBiHE21wyxEJicB8j5ds0gm5fJWafa4KyumWWHm0DOMtWgfwk2Z9HRbM471Tbn3dGMzldHszoEcl6pztZQj9U/GJ/PFzeemPqY1wAAAABJRU5ErkJggg==" alt="ERUA" class="pdf-toolbar-logo">
+    <div class="pdf-toolbar-text"><strong>Save as PDF:</strong> Click the button → your browser's print dialog opens → set the destination to <em>"Save as PDF"</em> → enable background graphics → save.</div>
+    <div class="pdf-toolbar-actions">
+      <button class="btn-print" onclick="window.print()">🖨 Save as PDF</button>
+      <button class="btn-close-pdf" onclick="closePDF()">✕ Close</button>
+    </div>
+  </div>
+  <div class="pdf-content" id="pdfContent"></div>
+</div>
+
+
+<div class="toast" id="toast">✓ Draft saved</div>
+<div class="footer-note">Foundations of Social Entrepreneurship Management &amp; the Business Plan · ERUA e-Course Programme</div>
+
+<script>
+  var fields = {0:['w1'],1:['c_value','c_segments','c_channels','c_relationships','c_activities','c_resources','c_partners','c_costs','c_revenue','c_mission','c_impact','c_surplus','c_competitors'],2:['r1','r2','r3']};
+  var labels = {
+    w1:'The venture you mapped',
+    c_value:'Value Proposition',c_segments:'Customer Segments',c_channels:'Channels',c_relationships:'Customer Relationships',
+    c_activities:'Key Activities',c_resources:'Key Resources',c_partners:'Key Partners',
+    c_costs:'Cost Structure',c_revenue:'Revenue Streams',
+    c_mission:'Social & Environmental Mission',c_impact:'Impact Measures',c_surplus:'Surplus (reinvestment)',
+    c_competitors:'Competitors / alternatives & how you differ',
+    r1:'Hardest block to fill and what it signals',
+    r2:'First question a co-founder would ask',
+    r3:'The assumption you most need to test next'
+  };
+  var panelTitles = {0:'What Is a Canvas',1:'Your Social Business Model Canvas',2:'Reflection'};
+  var STORAGE_KEY='erua_mgmt_module2';
+  var pdfTitle='Module 2 \u2014 The Social Business Model Canvas';
+
+  function showTab(n){document.querySelectorAll('.panel').forEach(function(p,i){p.classList.toggle('active',i===n);});document.querySelectorAll('.tab-btn').forEach(function(b,i){b.classList.toggle('active',i===n);});document.getElementById('progressBar').style.width=[33,66,100][n]+'%';window.scrollTo({top:0,behavior:'smooth'});}
+  function allFieldIds(){var ids=[];Object.keys(fields).forEach(function(k){ids=ids.concat(fields[k]);});return ids;}
+  var toastTimer;
+  function autosave(){try{var data={};allFieldIds().forEach(function(id){var el=document.getElementById(id);if(el)data[id]=el.value;});localStorage.setItem(STORAGE_KEY,JSON.stringify(data));}catch(e){}clearTimeout(toastTimer);var t=document.getElementById('toast');t.classList.add('show');toastTimer=setTimeout(function(){t.classList.remove('show');},1800);}
+  function restoreDraft(){try{var raw=localStorage.getItem(STORAGE_KEY);if(!raw)return;var data=JSON.parse(raw);Object.keys(data).forEach(function(id){var el=document.getElementById(id);if(el&&data[id]!=null)el.value=data[id];});checkDone();}catch(e){}}
+  function checkDone(){var done=['r1','r2','r3'].every(function(id){return document.getElementById(id).value.trim()!=='';});if(done){document.getElementById('doneBanner').classList.add('show');document.getElementById('tab-2').classList.add('done');}}
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function saveAndExport(){
+    var date=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+    var logoSrc=document.querySelector('.pdf-toolbar-logo').src;
+    var sectionsHTML='';
+    Object.keys(fields).forEach(function(tab){var ids=fields[tab];var items='';ids.forEach(function(id){var el=document.getElementById(id);if(!el)return;var v=el.value.trim();if(!v)return;items+='<div class="pdf-answer-block"><div class="pdf-answer-label">'+(labels[id]||id)+'</div><div class="pdf-answer-text">'+esc(v)+'</div></div>';});if(items)sectionsHTML+='<div class="pdf-section-heading">'+panelTitles[tab]+'</div>'+items;});
+    document.getElementById('pdfContent').innerHTML='<div class="pdf-header"><div class="pdf-header-text"><div class="pdf-course-tag">ERUA e-Course \u00b7 Foundations of Social Entrepreneurship Management</div><div class="pdf-title">'+pdfTitle+'</div><div class="pdf-meta">Saved on '+date+'</div></div><img src="'+logoSrc+'" alt="ERUA" class="pdf-header-logo"></div>'+sectionsHTML+'<div class="pdf-footer"><span>Foundations of Social Entrepreneurship Management &amp; the Business Plan \u00b7 ERUA e-Course Programme \u00b7 CC BY-NC 4.0</span><img src="'+logoSrc+'" alt="ERUA" class="pdf-footer-logo"></div>';
+    var overlay=document.getElementById('pdfOverlay');overlay.classList.add('show');overlay.scrollTop=0;
+  }
+  function closePDF(){document.getElementById('pdfOverlay').classList.remove('show');}
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',restoreDraft);}else{restoreDraft();}
+</script>
+</body>
+</html>

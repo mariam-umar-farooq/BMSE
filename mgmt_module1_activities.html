@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 1 — Strategy for Social Ventures</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4FBF7;--surface:#FFFFFF;--ink:#1A2E1F;--ink-light:#4A6455;--accent:#1A6B3C;--accent-light:#D4F0E0;--border:#C8E0D2;--amber:#D4870A;--amber-light:#FFF3CD;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);min-height:100vh;}
+  .progress-bar-wrap{height:3px;background:var(--border);width:100%;}
+  .progress-bar-fill{height:100%;background:#1AC978;transition:width .4s ease;}
+  .tab-nav{display:flex;background:var(--surface);border-bottom:2px solid var(--border);overflow-x:auto;scrollbar-width:none;position:sticky;top:0;z-index:100;}
+  .tab-nav::-webkit-scrollbar{display:none;}
+  .tab-btn{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;padding:14px 18px;border:none;background:none;cursor:pointer;color:var(--ink-light);white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s;display:flex;align-items:center;gap:6px;}
+  .tab-btn:hover{color:var(--accent);}
+  .tab-btn.active{color:var(--accent);border-bottom-color:var(--accent);}
+  .tab-dot{width:7px;height:7px;border-radius:50%;background:var(--border);flex-shrink:0;transition:background .2s;}
+  .tab-btn.done .tab-dot,.tab-btn.active .tab-dot{background:var(--accent);}
+  .panel{display:none;padding:32px 24px 60px;max-width:720px;margin:0 auto;}
+  .panel.active{display:block;animation:fadeUp .4s ease both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  .panel-tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:4px 10px;border-radius:4px;margin-bottom:14px;}
+  .panel h2{font-family:'DM Serif Display',serif;font-size:clamp(22px,4vw,30px);line-height:1.2;margin-bottom:10px;}
+  .panel-intro{font-size:14px;color:var(--ink-light);line-height:1.65;margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--border);}
+  .time-badge{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;color:var(--ink-light);background:var(--bg);border:1px solid var(--border);border-radius:99px;padding:3px 10px;margin-bottom:20px;}
+  .q-block{margin-bottom:24px;}
+  .q-label{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px;line-height:1.5;}
+  .q-hint{font-size:12px;color:var(--ink-light);margin-bottom:8px;line-height:1.5;font-style:italic;}
+  textarea{width:100%;font-family:'DM Sans',sans-serif;font-size:13px;line-height:1.6;color:var(--ink);background:var(--surface);border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;resize:vertical;min-height:90px;outline:none;transition:border-color .2s;}
+  textarea:focus{border-color:var(--accent);}
+  textarea::placeholder{color:#B0C8BA;}
+  .example-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-light);margin:20px 0 10px;}
+  .veja-box{background:var(--surface);border:1.5px solid var(--border);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 18px;margin-bottom:20px;font-size:13px;line-height:1.6;color:var(--ink-light);}
+  .veja-box strong{color:var(--accent);font-weight:600;}
+  .step-item{display:flex;gap:12px;align-items:flex-start;padding:11px 14px;background:var(--surface);border:1.5px solid var(--border);border-radius:10px;margin-bottom:8px;}
+  .step-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--accent);color:white;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+  .step-body{flex:1;font-size:13px;line-height:1.5;}
+  .step-body strong{color:var(--ink);font-weight:600;}
+  .step-body span{color:var(--ink-light);}
+  .callout{background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:12px 16px;font-size:13px;line-height:1.6;color:var(--ink);margin:16px 0 24px;}
+  .callout.amber{background:var(--amber-light);border-color:var(--amber);}
+  .callout strong{font-weight:600;}
+  hr.div{border:none;border-top:1px solid var(--border);margin:28px 0;}
+  .sorter{margin-bottom:24px;}
+  .sort-item{background:var(--surface);border:1.5px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:12px;}
+  .sort-statement{font-size:13px;color:var(--ink);line-height:1.5;margin-bottom:10px;}
+  .sort-options{display:flex;gap:6px;flex-wrap:wrap;}
+  .sort-btn{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;padding:6px 14px;border-radius:99px;border:1.5px solid var(--border);background:var(--bg);color:var(--ink-light);cursor:pointer;transition:all .15s;}
+  .sort-btn:hover{border-color:var(--accent);color:var(--accent);}
+  .sort-btn.selected{background:var(--accent);border-color:var(--accent);color:white;}
+  .sort-feedback{font-size:12px;line-height:1.5;margin-top:10px;padding:8px 12px;border-radius:8px;display:none;}
+  .sort-feedback.show{display:block;}
+  .sort-feedback.correct{background:var(--accent-light);color:var(--accent);}
+  .sort-feedback.incorrect{background:var(--amber-light);color:#9A5D00;}
+  .done-banner{background:var(--accent-light);border:1.5px solid var(--accent);border-radius:12px;padding:20px 24px;text-align:center;display:none;margin-bottom:24px;}
+  .done-banner.show{display:block;animation:fadeUp .4s ease both;}
+  .done-banner h3{font-family:'DM Serif Display',serif;font-size:20px;color:var(--accent);margin-bottom:6px;}
+  .done-banner p{font-size:13px;color:var(--accent);}
+  .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px;padding-top:24px;border-top:1px solid var(--border);}
+  .btn{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;padding:11px 20px;border-radius:9px;border:none;cursor:pointer;transition:all .2s;}
+  .btn-primary{background:var(--accent);color:white;}
+  .btn-primary:hover{background:#135A30;}
+  .btn-next{background:var(--ink);color:white;}
+  .btn-ghost{background:transparent;color:var(--ink-light);border:1.5px solid var(--border);}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(60px);background:var(--ink);color:white;font-size:13px;font-weight:500;padding:10px 20px;border-radius:99px;transition:transform .3s cubic-bezier(.34,1.56,.64,1);z-index:999;white-space:nowrap;}
+  .toast.show{transform:translateX(-50%) translateY(0);}
+  .footer-note{text-align:center;font-size:11px;color:var(--ink-light);padding:20px 24px;border-top:1px solid var(--border);}
+  .pdf-overlay{display:none;position:fixed;inset:0;background:white;z-index:9999;overflow-y:auto;}
+  .pdf-overlay.show{display:block;}
+  .pdf-toolbar{background:#48F89B;color:#0D3D24;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:0;z-index:10;border-bottom:2px solid #1AC978;}
+  .pdf-toolbar-logo{height:28px;width:auto;flex-shrink:0;}
+  .pdf-toolbar-text{font-size:12px;font-weight:500;line-height:1.4;flex:1;color:#0D3D24;}
+  .pdf-toolbar-text strong{font-weight:700;}
+  .pdf-toolbar-text em{font-style:italic;font-weight:600;}
+  .pdf-toolbar-actions{display:flex;gap:8px;flex-shrink:0;}
+  .btn-print{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;padding:7px 14px;border-radius:7px;border:2px solid #0D3D24;background:#0D3D24;color:#48F89B;cursor:pointer;}
+  .btn-close-pdf{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;padding:7px 12px;border-radius:7px;border:1.5px solid rgba(13,61,36,.4);background:transparent;color:#0D3D24;cursor:pointer;}
+  .pdf-content{max-width:680px;margin:0 auto;padding:40px 48px 60px;}
+  .pdf-header{border-bottom:2px solid #48F89B;padding-bottom:16px;margin-bottom:24px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;}
+  .pdf-header-text{flex:1;}
+  .pdf-header-logo{height:36px;width:auto;flex-shrink:0;}
+  .pdf-course-tag{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#1AC978;margin-bottom:6px;}
+  .pdf-title{font-family:'DM Serif Display',serif;font-size:22px;color:#1A1A1A;line-height:1.2;margin-bottom:4px;}
+  .pdf-meta{font-size:12px;color:#6B6560;}
+  .pdf-section-heading{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#1AC978;margin:24px 0 12px;padding-bottom:6px;border-bottom:1px solid #E2DDD8;}
+  .pdf-answer-block{margin-bottom:18px;page-break-inside:avoid;}
+  .pdf-answer-label{font-size:12px;font-weight:600;color:#1A1A1A;margin-bottom:6px;}
+  .pdf-answer-text{font-size:13px;color:#333;line-height:1.7;background:#F0FFF7;border-left:3px solid #48F89B;padding:10px 14px;border-radius:0 6px 6px 0;white-space:pre-wrap;word-wrap:break-word;}
+  .pdf-footer{margin-top:40px;padding-top:14px;border-top:1px solid #E2DDD8;font-size:11px;color:#6B6560;display:flex;justify-content:space-between;align-items:center;}
+  .pdf-footer-logo{height:18px;width:auto;}
+  @media print{*{visibility:hidden;}.pdf-overlay,.pdf-overlay *{visibility:visible;}.pdf-overlay{position:fixed;inset:0;overflow:visible;background:white;}.pdf-toolbar{display:none !important;}.pdf-content{padding:24px 48px;max-width:100%;}@page{margin:1.5cm;size:A4;}}
+</style>
+</head>
+<body>
+
+<div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar" style="width:33%"></div></div>
+
+<div class="tab-nav">
+  <button class="tab-btn active" id="tab-0" onclick="showTab(0)"><span class="tab-dot"></span> 1 · Warm-up</button>
+  <button class="tab-btn" id="tab-1" onclick="showTab(1)"><span class="tab-dot"></span> 2 · Strategy in Action</button>
+  <button class="tab-btn" id="tab-2" onclick="showTab(2)"><span class="tab-dot"></span> 3 · Reflection</button>
+</div>
+
+<!-- PANEL 1: WARM-UP -->
+<div class="panel active" id="panel-0">
+  <div class="panel-tag">Module 1 · Activity 1 of 3</div>
+  <h2>A Social Venture Still Needs a Strategy</h2>
+  <div class="time-badge">⏱ About 8 minutes</div>
+  <p class="panel-intro">A social mission is a reason to exist — but it isn't a plan. Social entrepreneurship still needs management and strategy: the means by which an organisation achieves its objectives through the deliberate use of its resources. This module introduces how strategy works, with the sustainable-footwear company Veja as our running example.</p>
+
+  <div class="q-block">
+    <div class="q-label">🎯 Think of a social venture or cause you care about. What is it ultimately trying to achieve — and does it have a clear plan to get there?</div>
+    <div class="q-hint">Purpose and plan are different things. Where does the one you're thinking of sit?</div>
+    <textarea id="w1" placeholder="The venture I'm thinking of wants to… Its plan to get there is (clear / unclear) because…" oninput="autosave()"></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-label">💭 In your own words: what's the difference between a venture's <em>mission</em> and its <em>strategy</em>?</div>
+    <div class="q-hint">Your first intuition — you'll sharpen it with the strategic process on the next tab.</div>
+    <textarea id="w2" placeholder="A mission is… while a strategy is…" oninput="autosave()"></textarea>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-primary" onclick="saveAndExport()">↓ Save as PDF</button>
+    <button class="btn btn-next" onclick="showTab(1)">Next →</button>
+  </div>
+</div>
+
+<!-- PANEL 2: STRATEGY IN ACTION -->
+<div class="panel" id="panel-1">
+  <div class="panel-tag">Module 1 · Activity 2 of 3</div>
+  <h2>The Strategic Process — with Veja</h2>
+  <div class="time-badge">⏱ About 18 minutes</div>
+  <p class="panel-intro">Strategy formation follows a process. You set direction, understand your context, then decide how to compete and create value. Here it is, step by step — then you'll apply two parts of it to Veja.</p>
+
+  <div class="example-label">The strategic process</div>
+  <div class="step-item"><div class="step-num">1</div><div class="step-body"><strong>Mission, vision &amp; goals</strong> <span>— why do we exist? (mission) · what do we want to be? (vision) · goals, shaped by stakeholders</span></div></div>
+  <div class="step-item"><div class="step-num">2</div><div class="step-body"><strong>Analyse the environment</strong> <span>— the general environment (PESTEL) and the sector (competition, entrants, substitutes)</span></div></div>
+  <div class="step-item"><div class="step-num">3</div><div class="step-body"><strong>Analyse the firm internally</strong> <span>— strengths and weaknesses, resources and capabilities (SWOT brings this together with the environment)</span></div></div>
+  <div class="step-item"><div class="step-num">4</div><div class="step-body"><strong>Formulate the strategy</strong> <span>— decide how to create value and build advantage</span></div></div>
+  <div class="step-item"><div class="step-num">5</div><div class="step-body"><strong>Implement &amp; control</strong> <span>— put it into action, then monitor and adjust</span></div></div>
+
+  <div class="callout">💡 <strong>Social value creation goes beyond CSR.</strong> Reducing harm and being a good corporate citizen is the floor. <em>Creating Shared Value</em> means building measurable value by addressing social problems that intersect with the business itself — the social mission and the strategy are one and the same.</div>
+
+  <div class="example-label">Veja — the running example</div>
+  <div class="veja-box">
+    <strong>Veja</strong> makes sustainable trainers, born from two French friends' shared concern for social justice and sustainability. The shoes use ecological raw materials from producers' cooperatives — organic cotton from Peruvian and Brazilian growers, and wild rubber from the Amazon, whose purchase generates resources to help preserve the rainforest. Footwear production is highly polluting (≈1.4% of global greenhouse-gas emissions), and there's growing social concern for the environment and a shift toward repairing rather than replacing shoes.
+  </div>
+
+  <hr class="div">
+
+  <div class="q-block">
+    <div class="q-label">🌍 <strong>PESTEL — spot the forces.</strong> The Veja description points to forces in the <em>general environment</em>. Which PESTEL dimensions are most clearly at play, and how?</div>
+    <div class="q-hint">PESTEL = Political, Economic, Social, Technological, Environmental, Legal. At least two are strongly present here.</div>
+    <textarea id="v_pestel" placeholder="The clearest PESTEL forces in the Veja case are… For example…" oninput="autosave()"></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-label">💚 <strong>Shared value.</strong> How does Veja create <em>shared</em> value — where does solving a social/environmental problem and running the business become the same act?</div>
+    <div class="q-hint">Look at the rubber-from-the-Amazon detail. Where does mission = strategy?</div>
+    <textarea id="v_shared" placeholder="Veja creates shared value by… The point where mission and strategy become one is…" oninput="autosave()"></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-label">✍️ <strong>Write a social mission.</strong> Draft a one-sentence mission statement for Veja — the "why do we exist?" that captures both the social purpose and the business.</div>
+    <div class="q-hint">A good social mission names who/what it serves and the change it exists to make.</div>
+    <textarea id="v_mission" placeholder="Veja exists to…" oninput="autosave()"></textarea>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-primary" onclick="saveAndExport()">↓ Save as PDF</button>
+    <button class="btn btn-ghost" onclick="showTab(0)">← Back</button>
+    <button class="btn btn-next" onclick="showTab(2)">Next →</button>
+  </div>
+</div>
+
+<!-- PANEL 3: REFLECTION -->
+<div class="panel" id="panel-2">
+  <div class="panel-tag">Module 1 · Activity 3 of 3</div>
+  <h2>Reflection</h2>
+  <div class="time-badge">⏱ About 6 minutes</div>
+  <p class="panel-intro">Bring the strategic lens back to your own thinking.</p>
+
+  <div class="q-block">
+    <div class="q-label">🧭 For a social venture you care about, write a first-draft mission and one strategic goal.</div>
+    <div class="q-hint">Mission = why it exists. Goal = a concrete thing to achieve, shaped by its stakeholders.</div>
+    <textarea id="r1" placeholder="Mission: … / One strategic goal: …" oninput="autosave();checkDone()"></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-label">⚖️ Deliberate vs. emergent: where should a young social venture plan carefully, and where should it stay open to strategy that emerges?</div>
+    <div class="q-hint">Not all strategy is planned in advance — some emerges from what you learn along the way.</div>
+    <textarea id="r2" placeholder="I'd plan deliberately for… but stay open to emergent strategy on…" oninput="autosave();checkDone()"></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-label">💚 Where could your venture move beyond "doing less harm" (CSR) toward genuinely creating shared value?</div>
+    <div class="q-hint">Where could solving a social problem <em>be</em> the business, not a side activity?</div>
+    <textarea id="r3" placeholder="It could create shared value by…" oninput="autosave();checkDone()"></textarea>
+  </div>
+
+  <div class="done-banner" id="doneBanner">
+    <h3>✓ Module 1 complete</h3>
+    <p>You've walked the strategic process and applied it to Veja. Save your work below before moving to Module 2 — the Social Business Model Canvas.</p>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-primary" onclick="saveAndExport()">↓ Save as PDF</button>
+    <button class="btn btn-ghost" onclick="showTab(1)">← Back</button>
+  </div>
+</div>
+
+<!-- PDF Overlay -->
+<div class="pdf-overlay" id="pdfOverlay">
+  <div class="pdf-toolbar">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEcAAABkCAMAAADjVt21AAAACXBIWXMAAAsSAAALEgHS3X78AAAAM1BMVEVHcExI+JtI+JtI+JtI+JtI+JtI+JtI+JtI+JtI+JtI+JtI+JtI+JtI+JtI+JtI+JtI+JsXaIzrAAAAEHRSTlMAMCBAYBDggMDwkNCgULBwaiguQQAAAWtJREFUWMPt2G1ugzAMBuCGfDmBdr7/aYdUdYUBwdjvtvyYD/BIMY5jc7v1GCGLIvgTh1gaY3UQZ46UI8RhLkfSRWeWPjAOM0WMw8VhHC4B4zAHkMMO5JQB4/AIcjiDnHWKDA6BHPYgh0AODyCngpwEchYHszkB5FSQQyBnBDn87/yKM3ZWP7Wz+zX01X9qX/2Z+nq/qK/3PXc1/6DmMdfTvAqan0HzPGa/2DnTn+1fkH2wvZ+29uW0SIpXb+T31Ko7afj1gUtUKY4aLV0cw9Tu6bKI03kXFSi5HHz3+xXmUJmLUJ7qkOQNWVgwrE21P78hD03BnD2g4oJpzynygrmY6tj41Ns2FhUFsxeTpmDEqU7mZ/0ZkJdU6eyl2jqkmhx2IIdAzrajadeBiHE21wyxEJicB8j5ds0gm5fJWafa4KyumWWHm0DOMtWgfwk2Z9HRbM471Tbn3dGMzldHszoEcl6pztZQj9U/GJ/PFzeemPqY1wAAAABJRU5ErkJggg==" alt="ERUA" class="pdf-toolbar-logo">
+    <div class="pdf-toolbar-text"><strong>Save as PDF:</strong> Click the button → your browser's print dialog opens → set the destination to <em>"Save as PDF"</em> → enable background graphics → save.</div>
+    <div class="pdf-toolbar-actions">
+      <button class="btn-print" onclick="window.print()">🖨 Save as PDF</button>
+      <button class="btn-close-pdf" onclick="closePDF()">✕ Close</button>
+    </div>
+  </div>
+  <div class="pdf-content" id="pdfContent"></div>
+</div>
+
+<div class="toast" id="toast">✓ Draft saved</div>
+<div class="footer-note">Foundations of Social Entrepreneurship Management &amp; the Business Plan · ERUA e-Course Programme</div>
+
+<script>
+  var fields = {0:['w1','w2'],1:['v_pestel','v_shared','v_mission'],2:['r1','r2','r3']};
+  var labels = {
+    w1:'A social venture you care about — what it wants, and whether it has a plan',
+    w2:'The difference between mission and strategy (first intuition)',
+    v_pestel:'Veja — the clearest PESTEL forces',
+    v_shared:'Veja — how it creates shared value',
+    v_mission:'Veja — a one-sentence social mission',
+    r1:'Your venture — draft mission and one strategic goal',
+    r2:'Where to plan deliberately vs. stay open to emergent strategy',
+    r3:'Where your venture could create shared value beyond CSR'
+  };
+  var panelTitles = {0:'Warm-Up',1:'The Strategic Process (with Veja)',2:'Reflection'};
+
+  var sortResult={};
+
+  function showTab(n) {
+    document.querySelectorAll('.panel').forEach(function(p,i){p.classList.toggle('active',i===n);});
+    document.querySelectorAll('.tab-btn').forEach(function(b,i){b.classList.toggle('active',i===n);});
+    document.getElementById('progressBar').style.width=[33,66,100][n]+'%';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  var STORAGE_KEY='erua_mgmt_module1';
+  function allFieldIds(){var ids=[];Object.keys(fields).forEach(function(k){ids=ids.concat(fields[k]);});return ids;}
+
+  var toastTimer;
+  function autosave(){
+    try{
+      var data={};
+      allFieldIds().forEach(function(id){var el=document.getElementById(id);if(el)data[id]=el.value;});
+      localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
+    }catch(e){}
+    clearTimeout(toastTimer);
+    var t=document.getElementById('toast');
+    t.classList.add('show');
+    toastTimer=setTimeout(function(){t.classList.remove('show');},1800);
+  }
+
+  function restoreDraft(){
+    try{
+      var raw=localStorage.getItem(STORAGE_KEY);
+      if(!raw) return;
+      var data=JSON.parse(raw);
+      Object.keys(data).forEach(function(id){var el=document.getElementById(id);if(el&&data[id]!=null)el.value=data[id];});
+      checkDone();
+    }catch(e){}
+  }
+
+  function checkDone(){
+    var done=['r1','r2','r3'].every(function(id){return document.getElementById(id).value.trim()!=='';});
+    if(done){
+      document.getElementById('doneBanner').classList.add('show');
+      document.getElementById('tab-2').classList.add('done');
+    }
+  }
+
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+  function saveAndExport(){
+    var date=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+    var logoSrc=document.querySelector('.pdf-toolbar-logo').src;
+    var sectionsHTML='';
+    Object.keys(fields).forEach(function(tab){
+      var ids=fields[tab];
+      var items='';
+      ids.forEach(function(id){
+        var el=document.getElementById(id);
+        if(!el) return;
+        var v=el.value.trim();
+        if(!v) return;
+        items+='<div class="pdf-answer-block"><div class="pdf-answer-label">'+(labels[id]||id)+'</div><div class="pdf-answer-text">'+esc(v)+'</div></div>';
+      });
+      if(items) sectionsHTML+='<div class="pdf-section-heading">'+panelTitles[tab]+'</div>'+items;
+    });
+
+    document.getElementById('pdfContent').innerHTML=
+      '<div class="pdf-header">'+
+        '<div class="pdf-header-text">'+
+          '<div class="pdf-course-tag">ERUA e-Course · Foundations of Social Entrepreneurship Management</div>'+
+          '<div class="pdf-title">Module 1 — Strategy for Social Ventures</div>'+
+          '<div class="pdf-meta">Saved on '+date+'</div>'+
+        '</div>'+
+        '<img src="'+logoSrc+'" alt="ERUA" class="pdf-header-logo">'+
+      '</div>'+
+      sectionsHTML+
+      '<div class="pdf-footer">'+
+        '<span>Foundations of Social Entrepreneurship Management &amp; the Business Plan · ERUA e-Course Programme · CC BY-NC 4.0</span>'+
+        '<img src="'+logoSrc+'" alt="ERUA" class="pdf-footer-logo">'+
+      '</div>';
+
+    var overlay=document.getElementById('pdfOverlay');
+    overlay.classList.add('show');
+    overlay.scrollTop=0;
+  }
+
+  function closePDF(){document.getElementById('pdfOverlay').classList.remove('show');}
+
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',restoreDraft);}else{restoreDraft();}
+</script>
+</body>
+</html>
