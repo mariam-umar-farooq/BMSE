@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Segmentation, Targeting, Positioning</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4FBF7;--ink:#1A2E1F;--ink-light:#4A6455;--accent:#1A6B3C;--accent-light:#D4F0E0;--border:#C8E0D2;--navy:#2E3A8C;--navy-dark:#1F2A6E;--navy-light:#6B77C4;--navy-pale:#8b95d6;--mint:#C9F5DC;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);padding:24px 16px 44px;}
+  .wrap{max-width:940px;margin:0 auto;}
+  .head{margin-bottom:18px;}
+  .head h1{font-family:'DM Serif Display',serif;font-size:clamp(22px,4.5vw,32px);color:var(--navy);margin-bottom:6px;letter-spacing:.01em;}
+  .head p{font-size:13.5px;color:var(--ink-light);line-height:1.6;max-width:680px;}
+  .src{font-size:11px;color:var(--ink-light);font-style:italic;margin-top:10px;}
+  .foot{text-align:center;font-size:11px;color:var(--ink-light);margin-top:24px;line-height:1.5;border-top:1px solid var(--border);padding-top:14px;}
+  .stage{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:26px 22px;position:relative;overflow:hidden;}
+  .stage::before{content:'';position:absolute;top:-40px;left:-40px;width:220px;height:180px;background:var(--mint);opacity:.5;transform:rotate(-18deg);z-index:0;}
+  .stage > *{position:relative;z-index:1;}
+  .navybox{background:var(--navy);color:#fff;border-radius:8px;padding:14px 16px;font-weight:700;font-size:13px;text-align:center;line-height:1.25;letter-spacing:.02em;text-transform:uppercase;}
+  .arrow{color:var(--navy);font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+
+  body{display:flex;align-items:center;justify-content:center;min-height:100vh;}
+  .wrap{max-width:760px;}
+  .head{text-align:center;}
+  .head p{margin:0 auto;}
+  .stp-cols{display:grid;grid-template-columns:auto auto;gap:40px;align-items:center;justify-content:center;}
+  .venn-wrap{display:flex;align-items:center;justify-content:center;}
+  .venn-wrap svg{width:250px;}
+  .stp-list{display:flex;flex-direction:column;gap:16px;}
+  .stp-item{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;border-radius:14px;background:#fff;border:1.5px solid var(--border);border-left-width:5px;transition:transform .15s;min-width:270px;}
+  .stp-item:hover{transform:translateX(3px);}
+  .stp-item.seg{border-left-color:#3AAE8C;}
+  .stp-item.tar{border-left-color:#E08A2B;}
+  .stp-item.pos{border-left-color:#6B77C4;}
+  .stp-item .si{width:42px;height:42px;flex-shrink:0;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;}
+  .stp-item.seg .si{background:#D6F3E9;}
+  .stp-item.tar .si{background:#FBE7CC;}
+  .stp-item.pos .si{background:#E0E3F5;}
+  .stp-item .stx{display:flex;flex-direction:column;gap:2px;}
+  .stp-item .st{font-family:'DM Serif Display',serif;font-size:20px;color:var(--navy);line-height:1;}
+  .stp-item .sd{font-size:12px;color:var(--ink-light);line-height:1.4;}
+  @media(max-width:640px){.stp-cols{grid-template-columns:1fr;gap:24px;}.stp-item{min-width:0;}}
+</style></head>
+<body><div class="wrap">
+  <div class="head"><h1>Segmentation · Targeting · Positioning</h1>
+    <p>The three linked decisions at the heart of marketing strategy: divide the market into segments, choose which to serve, and define how you want to be seen.</p>
+    <div class="src">Source: "Segmentation, targeting and positioning for social entrepreneurship" slides by Marta Giovannetti</div></div>
+  <div class="stage"><div class="stp-cols">
+    <div class="venn-wrap">
+      <svg viewBox="0 0 280 270" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+        <defs>
+          <radialGradient id="gSeg" cx="50%" cy="40%" r="70%">
+            <stop offset="0%" stop-color="#7FD9BE"/><stop offset="100%" stop-color="#3AAE8C"/>
+          </radialGradient>
+          <radialGradient id="gTar" cx="50%" cy="40%" r="70%">
+            <stop offset="0%" stop-color="#F5C983"/><stop offset="100%" stop-color="#E08A2B"/>
+          </radialGradient>
+          <radialGradient id="gPos" cx="50%" cy="40%" r="70%">
+            <stop offset="0%" stop-color="#A6AEE6"/><stop offset="100%" stop-color="#6B77C4"/>
+          </radialGradient>
+        </defs>
+        <g style="mix-blend-mode:multiply;">
+          <circle cx="140" cy="92" r="78" fill="url(#gSeg)" fill-opacity="0.9"/>
+          <circle cx="96" cy="172" r="78" fill="url(#gPos)" fill-opacity="0.9"/>
+          <circle cx="184" cy="172" r="78" fill="url(#gTar)" fill-opacity="0.9"/>
+        </g>
+        <circle cx="140" cy="66" r="22" fill="#fff" opacity="0.92"/>
+        <circle cx="96" cy="188" r="22" fill="#fff" opacity="0.92"/>
+        <circle cx="184" cy="188" r="22" fill="#fff" opacity="0.92"/>
+        <text x="140" y="74" text-anchor="middle" font-size="24">📊</text>
+        <text x="96" y="196" text-anchor="middle" font-size="24">🧭</text>
+        <text x="184" y="196" text-anchor="middle" font-size="24">🎯</text>
+      </svg>
+    </div>
+    <div class="stp-list">
+      <div class="stp-item seg"><div class="si">📊</div><div class="stx"><div class="st">Segmentation</div><div class="sd">Group the market by the needs a product can meet</div></div></div>
+      <div class="stp-item tar"><div class="si">🎯</div><div class="stx"><div class="st">Targeting</div><div class="sd">Choose which segments you'll actually serve</div></div></div>
+      <div class="stp-item pos"><div class="si">🧭</div><div class="stx"><div class="st">Positioning</div><div class="sd">Define who you are and how you're different</div></div></div>
+    </div>
+  </div></div>
+  <div class="foot">ERUA e-Course · Foundations of Social Entrepreneurship Management &amp; the Business Plan · CC BY-NC 4.0</div>
+</div></body></html>
