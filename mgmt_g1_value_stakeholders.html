@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Value & Stakeholders</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4FBF7;--ink:#1A2E1F;--ink-light:#4A6455;--accent:#1A6B3C;--accent-light:#D4F0E0;--border:#C8E0D2;--navy:#2E3A8C;--navy-dark:#1F2A6E;--navy-light:#6B77C4;--navy-pale:#8b95d6;--mint:#C9F5DC;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);padding:24px 16px 44px;}
+  .wrap{max-width:940px;margin:0 auto;}
+  .head{margin-bottom:18px;}
+  .head h1{font-family:'DM Serif Display',serif;font-size:clamp(22px,4.5vw,32px);color:var(--navy);margin-bottom:6px;letter-spacing:.01em;}
+  .head p{font-size:13.5px;color:var(--ink-light);line-height:1.6;max-width:680px;}
+  .src{font-size:11px;color:var(--ink-light);font-style:italic;margin-top:10px;}
+  .foot{text-align:center;font-size:11px;color:var(--ink-light);margin-top:24px;line-height:1.5;border-top:1px solid var(--border);padding-top:14px;}
+  .stage{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:26px 22px;position:relative;overflow:hidden;}
+  .stage::before{content:'';position:absolute;top:-40px;left:-40px;width:220px;height:180px;background:var(--mint);opacity:.5;transform:rotate(-18deg);z-index:0;}
+  .stage > *{position:relative;z-index:1;}
+  .navybox{background:var(--navy);color:#fff;border-radius:8px;padding:14px 16px;font-weight:700;font-size:13px;text-align:center;line-height:1.25;letter-spacing:.02em;text-transform:uppercase;}
+  .arrow{color:var(--navy);font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+
+  .cols{display:grid;grid-template-columns:1fr 1.1fr;gap:24px;align-items:center;}
+  .vleft h2{font-family:'DM Serif Display',serif;font-size:30px;color:var(--navy);margin-bottom:16px;}
+  .persp{font-size:14px;font-weight:700;color:var(--navy);text-decoration:underline;margin:14px 0 8px;}
+  .vleft p{font-size:13px;color:var(--navy);line-height:1.5;margin-bottom:6px;}
+  .vdown{font-size:26px;color:var(--navy);text-align:center;margin:10px 0;}
+  .circle-area{position:relative;height:380px;}
+  .center-circle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:150px;height:150px;border:2.5px dashed var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'DM Serif Display',serif;font-size:18px;color:var(--navy);line-height:1.1;}
+  .sh{position:absolute;text-align:center;width:96px;}
+  .sh .ic{width:36px;height:36px;border-radius:50%;background:var(--accent-light);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:17px;margin:0 auto 3px;}
+  .sh .lbl{font-size:10.5px;font-weight:600;color:var(--navy);line-height:1.2;}
+  @media(max-width:640px){.cols{grid-template-columns:1fr;}.circle-area{height:420px;}}
+</style></head>
+<body><div class="wrap">
+  <div class="head"><h1>Value: from individual to collective</h1>
+    <p>Marketing for a social venture shifts value from the individual to the collective — from shareholder and customer benefit to the value received by all stakeholders.</p>
+    <div class="src">Source: "Segmentation, targeting and positioning for social entrepreneurship" slides by Marta Giovannetti</div></div>
+  <div class="stage"><div class="cols">
+    <div class="vleft">
+      <h2>VALUE</h2>
+      <div class="persp">Individual perspective</div>
+      <p>Value for the shareholder (interests)</p>
+      <p>Value for the customer (benefits)</p>
+      <div class="vdown">↓</div>
+      <div class="persp">Collective perspective</div>
+      <p>Stakeholders represent individuals or organisations that may in some capacity express an interest in, be influenced by or influence companies, institutions or organisations.</p>
+    </div>
+    <div class="circle-area">
+      <div class="center-circle">STAKE&nbsp;HOLDERS</div>
+      <div class="sh" style="top:0;left:50%;transform:translateX(-50%);"><div class="ic">🏘️</div><div class="lbl">Community</div></div>
+      <div class="sh" style="top:6%;left:14%;"><div class="ic">👨‍👩‍👧</div><div class="lbl">Customers</div></div>
+      <div class="sh" style="top:6%;right:8%;"><div class="ic">🚚</div><div class="lbl">Suppliers</div></div>
+      <div class="sh" style="top:33%;left:0;"><div class="ic">👔</div><div class="lbl">Employees</div></div>
+      <div class="sh" style="top:33%;right:0;"><div class="ic">📋</div><div class="lbl">Regulators</div></div>
+      <div class="sh" style="top:60%;left:2%;"><div class="ic">💼</div><div class="lbl">Investors</div></div>
+      <div class="sh" style="top:60%;right:0;"><div class="ic">🏛️</div><div class="lbl">Companies of the financial sector</div></div>
+      <div class="sh" style="bottom:0;left:14%;"><div class="ic">🎥</div><div class="lbl">Media</div></div>
+      <div class="sh" style="bottom:0;left:50%;transform:translateX(-50%);"><div class="ic">🧑‍💼</div><div class="lbl">Shareholder</div></div>
+      <div class="sh" style="bottom:0;right:8%;"><div class="ic">❤️</div><div class="lbl">Private Charities</div></div>
+    </div>
+  </div></div>
+  <div class="foot">ERUA e-Course · Foundations of Social Entrepreneurship Management &amp; the Business Plan · CC BY-NC 4.0</div>
+</div></body></html>
