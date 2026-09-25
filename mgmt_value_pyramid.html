@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Value Pyramid — 30 Elements of Value</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4FBF7;--surface:#FFFFFF;--ink:#1A2E1F;--ink-light:#4A6455;--accent:#1A6B3C;--accent-light:#D4F0E0;--border:#C8E0D2;--amber:#D4870A;--amber-light:#FFF3CD;--fn:#1AA0C9;--em:#3AAE6B;--lc:#7A5CC0;--si:#D4870A;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);padding:24px 16px 48px;}
+  .wrap{max-width:860px;margin:0 auto;}
+  .head{text-align:center;margin-bottom:8px;}
+  .head h1{font-family:'DM Serif Display',serif;font-size:clamp(24px,5vw,34px);color:var(--accent);margin-bottom:6px;}
+  .head p{font-size:14px;color:var(--ink-light);line-height:1.6;max-width:620px;margin:0 auto 6px;}
+  .head .src{font-size:11px;color:var(--ink-light);font-style:italic;margin-top:8px;}
+  .pyramid{margin:28px 0 8px;}
+  .tier{background:var(--surface);border:1.5px solid var(--border);border-radius:14px;margin:0 auto 10px;padding:14px 16px 16px;position:relative;transition:transform .15s;}
+  .tier:hover{transform:translateY(-2px);}
+  .tier-label{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;padding:4px 12px;border-radius:99px;margin-bottom:12px;}
+  .tier-si .tier-label{background:var(--si);}
+  .tier-lc .tier-label{background:var(--lc);}
+  .tier-em .tier-label{background:var(--em);}
+  .tier-fn .tier-label{background:var(--fn);}
+  .tier-si{border-color:#F0D9A8;width:42%;min-width:280px;}
+  .tier-lc{border-color:#D8CCF0;width:64%;min-width:340px;}
+  .tier-em{border-color:#BFE6D0;width:84%;}
+  .tier-fn{border-color:#B8E4F0;width:100%;}
+  .els{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+  .el{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:5px;width:80px;padding:8px 4px;border-radius:10px;background:var(--bg);border:1px solid var(--border);text-align:center;}
+  .el .ic{width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:17px;line-height:1;}
+  .el .nm{font-size:10.5px;font-weight:600;color:var(--ink);line-height:1.25;}
+  .tier-si .el .ic{color:var(--si);}
+  .tier-lc .el .ic{color:var(--lc);}
+  .tier-em .el .ic{color:var(--em);}
+  .tier-fn .el .ic{color:var(--fn);}
+  .legend{margin-top:20px;padding:14px 16px;background:var(--surface);border:1.5px solid var(--border);border-radius:12px;font-size:12.5px;color:var(--ink-light);line-height:1.6;}
+  .legend strong{color:var(--ink);}
+  .legend .row{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;}
+  .legend .row:last-child{margin-bottom:0;}
+  .dot{flex-shrink:0;width:10px;height:10px;border-radius:50%;margin-top:4px;}
+  .foot{text-align:center;font-size:11px;color:var(--ink-light);margin-top:22px;line-height:1.5;}
+  @media(max-width:600px){.tier{width:100% !important;min-width:0 !important;}.el{width:72px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <h1>The Value Pyramid</h1>
+    <p>Thirty fundamental <strong>elements of value</strong> a product or service can deliver, from basic functional benefits at the base to social impact at the top. The higher up you create value, the stronger the customer bond.</p>
+    <div class="src">Source: "Social Business Model Canvas" slides by Jacques Bulchand Gidumal · elements of value model (Bain &amp; Company)</div>
+  </div>
+
+  <div class="pyramid">
+    <!-- SOCIAL IMPACT -->
+    <div class="tier tier-si">
+      <span class="tier-label">◆ Social impact</span>
+      <div class="els">
+        <div class="el"><div class="ic">▲</div><div class="nm">Self-transcendence</div></div>
+      </div>
+    </div>
+
+    <!-- LIFE CHANGING -->
+    <div class="tier tier-lc">
+      <span class="tier-label">◆ Life changing</span>
+      <div class="els">
+        <div class="el"><div class="ic">🎗️</div><div class="nm">Provides hope</div></div>
+        <div class="el"><div class="ic">⛰️</div><div class="nm">Self-actualization</div></div>
+        <div class="el"><div class="ic">📣</div><div class="nm">Motivation</div></div>
+        <div class="el"><div class="ic">🏺</div><div class="nm">Heirloom</div></div>
+        <div class="el"><div class="ic">👥</div><div class="nm">Affiliation/ belonging</div></div>
+      </div>
+    </div>
+
+    <!-- EMOTIONAL -->
+    <div class="tier tier-em">
+      <span class="tier-label">◆ Emotional</span>
+      <div class="els">
+        <div class="el"><div class="ic">🧸</div><div class="nm">Reduces anxiety</div></div>
+        <div class="el"><div class="ic">🎁</div><div class="nm">Rewards me</div></div>
+        <div class="el"><div class="ic">📺</div><div class="nm">Nostalgia</div></div>
+        <div class="el"><div class="ic">✏️</div><div class="nm">Design/ aesthetics</div></div>
+        <div class="el"><div class="ic">🛡️</div><div class="nm">Badge value</div></div>
+        <div class="el"><div class="ic">❤️</div><div class="nm">Wellness</div></div>
+        <div class="el"><div class="ic">🌿</div><div class="nm">Therapeutic value</div></div>
+        <div class="el"><div class="ic">😀</div><div class="nm">Fun/ entertainment</div></div>
+        <div class="el"><div class="ic">🧲</div><div class="nm">Attractiveness</div></div>
+        <div class="el"><div class="ic">🚪</div><div class="nm">Provides access</div></div>
+      </div>
+    </div>
+
+    <!-- FUNCTIONAL -->
+    <div class="tier tier-fn">
+      <span class="tier-label">◆ Functional</span>
+      <div class="els">
+        <div class="el"><div class="ic">⏱️</div><div class="nm">Saves time</div></div>
+        <div class="el"><div class="ic">🔗</div><div class="nm">Simplifies</div></div>
+        <div class="el"><div class="ic">💵</div><div class="nm">Makes money</div></div>
+        <div class="el"><div class="ic">🔌</div><div class="nm">Reduces risk</div></div>
+        <div class="el"><div class="ic">🗂️</div><div class="nm">Organizes</div></div>
+        <div class="el"><div class="ic">🔲</div><div class="nm">Integrates</div></div>
+        <div class="el"><div class="ic">🕸️</div><div class="nm">Connects</div></div>
+        <div class="el"><div class="ic">🪝</div><div class="nm">Reduces effort</div></div>
+        <div class="el"><div class="ic">🌀</div><div class="nm">Avoids hassles</div></div>
+        <div class="el"><div class="ic">🏷️</div><div class="nm">Reduces cost</div></div>
+        <div class="el"><div class="ic">✅</div><div class="nm">Quality</div></div>
+        <div class="el"><div class="ic">🔷</div><div class="nm">Variety</div></div>
+        <div class="el"><div class="ic">🌸</div><div class="nm">Sensory appeal</div></div>
+        <div class="el"><div class="ic">ℹ️</div><div class="nm">Informs</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="row"><span class="dot" style="background:var(--si)"></span><span><strong>Social impact</strong> — self-transcendence: helping others or society beyond oneself.</span></div>
+    <div class="row"><span class="dot" style="background:var(--lc)"></span><span><strong>Life changing</strong> — value that reshapes a person's life: hope, belonging, motivation.</span></div>
+    <div class="row"><span class="dot" style="background:var(--em)"></span><span><strong>Emotional</strong> — how it makes people feel: reduces anxiety, wellness, design.</span></div>
+    <div class="row"><span class="dot" style="background:var(--fn)"></span><span><strong>Functional</strong> — practical, tangible benefits: saves time, reduces cost, quality.</span></div>
+  </div>
+
+  <div class="foot">For social ventures, value often lives higher up the pyramid — in belonging, hope, and self-transcendence — not just in the functional base.<br>ERUA e-Course · Foundations of Social Entrepreneurship Management &amp; the Business Plan · CC BY-NC 4.0</div>
+</div>
+</body>
+</html>
