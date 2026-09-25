@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Targeting Patterns 2</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4FBF7;--ink:#1A2E1F;--ink-light:#4A6455;--accent:#1A6B3C;--accent-light:#D4F0E0;--border:#C8E0D2;--navy:#2E3A8C;--navy-dark:#1F2A6E;--navy-light:#6B77C4;--navy-pale:#8b95d6;--mint:#C9F5DC;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);padding:24px 16px 44px;}
+  .wrap{max-width:940px;margin:0 auto;}
+  .head{margin-bottom:18px;}
+  .head h1{font-family:'DM Serif Display',serif;font-size:clamp(22px,4.5vw,32px);color:var(--navy);margin-bottom:6px;letter-spacing:.01em;}
+  .head p{font-size:13.5px;color:var(--ink-light);line-height:1.6;max-width:680px;}
+  .src{font-size:11px;color:var(--ink-light);font-style:italic;margin-top:10px;}
+  .foot{text-align:center;font-size:11px;color:var(--ink-light);margin-top:24px;line-height:1.5;border-top:1px solid var(--border);padding-top:14px;}
+  .stage{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:26px 22px;position:relative;overflow:hidden;}
+  .stage::before{content:'';position:absolute;top:-40px;left:-40px;width:220px;height:180px;background:var(--mint);opacity:.5;transform:rotate(-18deg);z-index:0;}
+  .stage > *{position:relative;z-index:1;}
+  .navybox{background:var(--navy);color:#fff;border-radius:8px;padding:14px 16px;font-weight:700;font-size:13px;text-align:center;line-height:1.25;letter-spacing:.02em;text-transform:uppercase;}
+  .arrow{color:var(--navy);font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+
+  .grids2{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;max-width:560px;margin:0 auto;}
+  .gcard{text-align:center;}
+  .pmgrid{display:grid;grid-template-columns:auto repeat(3,1fr);grid-template-rows:auto repeat(3,1fr);gap:0;max-width:220px;margin:0 auto 12px;}
+  .pmgrid .mh{font-weight:700;color:var(--navy);font-size:14px;padding-bottom:5px;}
+  .pmgrid .ph{font-weight:700;color:var(--navy);font-size:14px;padding-right:6px;display:flex;align-items:center;justify-content:center;}
+  .pmgrid .c{border:1.5px solid var(--navy);aspect-ratio:1;background:#fff;}
+  .pmgrid .c.on{background:var(--navy-pale);}
+  .gcap{font-size:12px;font-weight:700;color:var(--ink-light);text-transform:uppercase;letter-spacing:.02em;}
+  .legend{text-align:right;font-size:11px;color:var(--ink-light);margin-bottom:8px;font-weight:600;}
+  @media(max-width:560px){.grids2{grid-template-columns:1fr;gap:28px;}}
+</style></head>
+<body><div class="wrap">
+  <div class="head"><h1>Targeting Patterns (continued)</h1>
+    <p>Two further coverage patterns: picking selected product-market combinations, or covering the whole market.</p>
+    <div class="src">Source: "Segmentation, targeting and positioning for social entrepreneurship" slides by Marta Giovannetti</div></div>
+  <div class="stage">
+    <div class="legend">P = Product · M = Market</div>
+    <div class="grids2">
+      <div class="gcard">
+        <div class="pmgrid">
+          <div class="corner"></div><div class="mh">M₁</div><div class="mh">M₂</div><div class="mh">M₃</div>
+          <div class="ph">P₁</div><div class="c"></div><div class="c"></div><div class="c on"></div>
+          <div class="ph">P₂</div><div class="c on"></div><div class="c"></div><div class="c"></div>
+          <div class="ph">P₃</div><div class="c"></div><div class="c on"></div><div class="c"></div>
+        </div>
+        <div class="gcap">Selective specialization</div>
+      </div>
+      <div class="gcard">
+        <div class="pmgrid">
+          <div class="corner"></div><div class="mh">M₁</div><div class="mh">M₂</div><div class="mh">M₃</div>
+          <div class="ph">P₁</div><div class="c on"></div><div class="c on"></div><div class="c on"></div>
+          <div class="ph">P₂</div><div class="c on"></div><div class="c on"></div><div class="c on"></div>
+          <div class="ph">P₃</div><div class="c on"></div><div class="c on"></div><div class="c on"></div>
+        </div>
+        <div class="gcap">Market coverage</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">ERUA e-Course · Foundations of Social Entrepreneurship Management &amp; the Business Plan · CC BY-NC 4.0</div>
+</div></body></html>

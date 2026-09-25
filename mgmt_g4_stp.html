@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Segmentation, Targeting, Positioning</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4FBF7;--ink:#1A2E1F;--ink-light:#4A6455;--accent:#1A6B3C;--accent-light:#D4F0E0;--border:#C8E0D2;--navy:#2E3A8C;--navy-dark:#1F2A6E;--navy-light:#6B77C4;--navy-pale:#8b95d6;--mint:#C9F5DC;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);padding:24px 16px 44px;}
+  .wrap{max-width:940px;margin:0 auto;}
+  .head{margin-bottom:18px;}
+  .head h1{font-family:'DM Serif Display',serif;font-size:clamp(22px,4.5vw,32px);color:var(--navy);margin-bottom:6px;letter-spacing:.01em;}
+  .head p{font-size:13.5px;color:var(--ink-light);line-height:1.6;max-width:680px;}
+  .src{font-size:11px;color:var(--ink-light);font-style:italic;margin-top:10px;}
+  .foot{text-align:center;font-size:11px;color:var(--ink-light);margin-top:24px;line-height:1.5;border-top:1px solid var(--border);padding-top:14px;}
+  .stage{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:26px 22px;position:relative;overflow:hidden;}
+  .stage::before{content:'';position:absolute;top:-40px;left:-40px;width:220px;height:180px;background:var(--mint);opacity:.5;transform:rotate(-18deg);z-index:0;}
+  .stage > *{position:relative;z-index:1;}
+  .navybox{background:var(--navy);color:#fff;border-radius:8px;padding:14px 16px;font-weight:700;font-size:13px;text-align:center;line-height:1.25;letter-spacing:.02em;text-transform:uppercase;}
+  .arrow{color:var(--navy);font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+
+  .stp-cols{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;}
+  .trefoil{display:flex;align-items:center;justify-content:center;}
+  .tf{position:relative;width:230px;height:230px;}
+  .tf .lobe{position:absolute;width:130px;height:130px;background:var(--navy);border-radius:50% 50% 50% 0;}
+  .tf .l1{top:0;left:50%;transform:translateX(-50%) rotate(-45deg);}
+  .tf .l2{bottom:0;left:6px;transform:rotate(-165deg);}
+  .tf .l3{bottom:0;right:6px;transform:rotate(75deg);}
+  .tf .ico{position:absolute;color:#fff;font-size:22px;z-index:2;}
+  .tf .i1{top:26px;left:50%;transform:translateX(-50%);}
+  .tf .i2{bottom:52px;left:36px;}
+  .tf .i3{bottom:52px;right:36px;}
+  .stp-list{display:flex;flex-direction:column;gap:22px;}
+  .stp-item{display:flex;align-items:center;gap:14px;}
+  .stp-item .si{width:44px;height:44px;flex-shrink:0;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;}
+  .stp-item .st{font-family:'DM Serif Display',serif;font-size:26px;color:var(--navy);letter-spacing:.02em;}
+  @media(max-width:640px){.stp-cols{grid-template-columns:1fr;}.stp-item .st{font-size:22px;}}
+</style></head>
+<body><div class="wrap">
+  <div class="head"><h1>Segmentation · Targeting · Positioning</h1>
+    <p>The three linked decisions at the heart of marketing strategy: divide the market into segments, choose which to serve, and define how you want to be seen.</p>
+    <div class="src">Source: "Segmentation, targeting and positioning for social entrepreneurship" slides by Marta Giovannetti</div></div>
+  <div class="stage"><div class="stp-cols">
+    <div class="trefoil"><div class="tf">
+      <div class="lobe l1"></div><div class="lobe l2"></div><div class="lobe l3"></div>
+      <div class="ico i1">📈</div><div class="ico i2">🔍</div><div class="ico i3">🎯</div>
+    </div></div>
+    <div class="stp-list">
+      <div class="stp-item"><div class="si">📈</div><div class="st">SEGMENTATION</div></div>
+      <div class="stp-item"><div class="si">🎯</div><div class="st">TARGETING</div></div>
+      <div class="stp-item"><div class="si">🔍</div><div class="st">POSITIONING</div></div>
+    </div>
+  </div></div>
+  <div class="foot">ERUA e-Course · Foundations of Social Entrepreneurship Management &amp; the Business Plan · CC BY-NC 4.0</div>
+</div></body></html>

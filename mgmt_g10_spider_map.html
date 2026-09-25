@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Positioning — Spider Map</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4FBF7;--ink:#1A2E1F;--ink-light:#4A6455;--accent:#1A6B3C;--accent-light:#D4F0E0;--border:#C8E0D2;--navy:#2E3A8C;--navy-dark:#1F2A6E;--navy-light:#6B77C4;--navy-pale:#8b95d6;--mint:#C9F5DC;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);padding:24px 16px 44px;}
+  .wrap{max-width:940px;margin:0 auto;}
+  .head{margin-bottom:18px;}
+  .head h1{font-family:'DM Serif Display',serif;font-size:clamp(22px,4.5vw,32px);color:var(--navy);margin-bottom:6px;letter-spacing:.01em;}
+  .head p{font-size:13.5px;color:var(--ink-light);line-height:1.6;max-width:680px;}
+  .src{font-size:11px;color:var(--ink-light);font-style:italic;margin-top:10px;}
+  .foot{text-align:center;font-size:11px;color:var(--ink-light);margin-top:24px;line-height:1.5;border-top:1px solid var(--border);padding-top:14px;}
+  .stage{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:26px 22px;position:relative;overflow:hidden;}
+  .stage::before{content:'';position:absolute;top:-40px;left:-40px;width:220px;height:180px;background:var(--mint);opacity:.5;transform:rotate(-18deg);z-index:0;}
+  .stage > *{position:relative;z-index:1;}
+  .navybox{background:var(--navy);color:#fff;border-radius:8px;padding:14px 16px;font-weight:700;font-size:13px;text-align:center;line-height:1.25;letter-spacing:.02em;text-transform:uppercase;}
+  .arrow{color:var(--navy);font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+
+  .pcols{display:grid;grid-template-columns:1fr 1.7fr;gap:24px;align-items:center;}
+  .ptext{font-size:13px;color:var(--navy);line-height:1.6;}
+  .ptext p{margin-bottom:12px;}
+  .es{font-size:12px;color:var(--ink-light);font-style:italic;}
+  @media(max-width:640px){.pcols{grid-template-columns:1fr;}}
+</style></head>
+<body><div class="wrap">
+  <div class="head"><h1>Positioning: the Spider Map</h1>
+    <p>A perceptual map can also take the form of a spider (radar) map — comparing several performance areas of a company and its key competitors at once.</p>
+    <div class="src">Source: "Segmentation, targeting and positioning for social entrepreneurship" slides by Marta Giovannetti</div></div>
+  <div class="stage"><div class="pcols">
+    <div class="ptext">
+      <p>Perceptual maps can also take the form of a spider map, to assess and visualise specific performance areas of the company and key competitors, to allow visualize different competitive formulas, strength and weaknesses.</p>
+      <p class="es">Example: cookies</p>
+    </div>
+    <div>
+<svg viewBox="0 0 600 620" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;">
+  <polygon points="300,258 325,266 340,287 340,313 325,334 300,342 275,334 260,313 260,287 275,266" fill="none" stroke="#D8D8D8" stroke-width="1"/>
+<text x="304" y="261" font-family="DM Sans, sans-serif" font-size="9" fill="#999">2.0</text>
+<polygon points="300,216 349,232 380,274 380,326 349,368 300,384 251,368 220,326 220,274 251,232" fill="none" stroke="#D8D8D8" stroke-width="1"/>
+<text x="304" y="219" font-family="DM Sans, sans-serif" font-size="9" fill="#999">4.0</text>
+<polygon points="300,174 374,198 420,261 420,339 374,402 300,426 226,402 180,339 180,261 226,198" fill="none" stroke="#D8D8D8" stroke-width="1"/>
+<text x="304" y="177" font-family="DM Sans, sans-serif" font-size="9" fill="#999">6.0</text>
+<polygon points="300,132 399,164 460,248 460,352 399,436 300,468 201,436 140,352 140,248 201,164" fill="none" stroke="#D8D8D8" stroke-width="1"/>
+<text x="304" y="135" font-family="DM Sans, sans-serif" font-size="9" fill="#999">8.0</text>
+<polygon points="300,90 423,130 500,235 500,365 423,470 300,510 177,470 100,365 100,235 177,130" fill="none" stroke="#D8D8D8" stroke-width="1"/>
+<text x="304" y="93" font-family="DM Sans, sans-serif" font-size="9" fill="#999">10.0</text>
+<line x1="300" y1="300" x2="300" y2="90" stroke="#E0E0E0" stroke-width="1"/>
+<text x="300" y="56" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#333">Sweet Taste</text>
+<line x1="300" y1="300" x2="423" y2="130" stroke="#E0E0E0" stroke-width="1"/>
+<text x="443" y="98" text-anchor="start" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#333">Good for<tspan x="443" dy="13">Kids</tspan></text>
+<line x1="300" y1="300" x2="500" y2="235" stroke="#E0E0E0" stroke-width="1"/>
+<text x="532" y="225" text-anchor="start" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#333">Wide Choice</text>
+<line x1="300" y1="300" x2="500" y2="365" stroke="#E0E0E0" stroke-width="1"/>
+<text x="532" y="370" text-anchor="start" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#333">Good for<tspan x="532" dy="13">Entertaining</tspan></text>
+<line x1="300" y1="300" x2="423" y2="470" stroke="#E0E0E0" stroke-width="1"/>
+<text x="443" y="492" text-anchor="start" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#333">Good as<tspan x="443" dy="13">a Snack</tspan></text>
+<line x1="300" y1="300" x2="300" y2="510" stroke="#E0E0E0" stroke-width="1"/>
+<text x="300" y="544" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#333">Good for You</text>
+<line x1="300" y1="300" x2="177" y2="470" stroke="#E0E0E0" stroke-width="1"/>
+<text x="157" y="497" text-anchor="end" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#333">High Quality</text>
+<line x1="300" y1="300" x2="100" y2="365" stroke="#E0E0E0" stroke-width="1"/>
+<text x="68" y="370" text-anchor="end" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#333">Old<tspan x="68" dy="13">Fashioned</tspan></text>
+<line x1="300" y1="300" x2="100" y2="235" stroke="#E0E0E0" stroke-width="1"/>
+<text x="68" y="220" text-anchor="end" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#333">A Trusted<tspan x="68" dy="13">Brand</tspan></text>
+<line x1="300" y1="300" x2="177" y2="130" stroke="#E0E0E0" stroke-width="1"/>
+<text x="157" y="98" text-anchor="end" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#333">Convenient Serving<tspan x="157" dy="13">Size</tspan></text>
+
+  <polygon points="300,237 337,249 360,281 380,326 362,385 300,426 214,419 220,326 240,281 263,249" fill="#3B6FB0" fill-opacity="0.12" stroke="#3B6FB0" stroke-width="2.5"/>
+  <polygon points="300,111 362,215 420,261 440,345 362,385 300,342 226,402 200,332 200,268 251,232" fill="#B0392E" fill-opacity="0.12" stroke="#B0392E" stroke-width="2.5"/>
+  <polygon points="300,216 374,198 380,274 440,345 374,402 300,384 251,368 200,332 160,255 238,215" fill="#7FA83A" fill-opacity="0.12" stroke="#7FA83A" stroke-width="2.5"/>
+  <g font-family="DM Sans, sans-serif" font-size="13" font-weight="600">
+    <line x1="360" y1="590" x2="392" y2="590" stroke="#3B6FB0" stroke-width="3"/><text x="398" y="594" fill="#333">Brand A</text>
+    <line x1="360" y1="606" x2="392" y2="606" stroke="#B0392E" stroke-width="3"/><text x="398" y="610" fill="#333">Brand B</text>
+    <line x1="460" y1="590" x2="492" y2="590" stroke="#7FA83A" stroke-width="3"/><text x="498" y="594" fill="#333">Brand C</text>
+  </g>
+</svg>    </div>
+  </div></div>
+  <div class="foot">Brand values are illustrative, reproducing the example shape in the source slide. · ERUA e-Course · Foundations of Social Entrepreneurship Management &amp; the Business Plan · CC BY-NC 4.0</div>
+</div></body></html>

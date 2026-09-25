@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Marketing Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4FBF7;--ink:#1A2E1F;--ink-light:#4A6455;--accent:#1A6B3C;--accent-light:#D4F0E0;--border:#C8E0D2;--navy:#2E3A8C;--navy-dark:#1F2A6E;--navy-light:#6B77C4;--navy-pale:#8b95d6;--mint:#C9F5DC;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);padding:24px 16px 44px;}
+  .wrap{max-width:940px;margin:0 auto;}
+  .head{margin-bottom:18px;}
+  .head h1{font-family:'DM Serif Display',serif;font-size:clamp(22px,4.5vw,32px);color:var(--navy);margin-bottom:6px;letter-spacing:.01em;}
+  .head p{font-size:13.5px;color:var(--ink-light);line-height:1.6;max-width:680px;}
+  .src{font-size:11px;color:var(--ink-light);font-style:italic;margin-top:10px;}
+  .foot{text-align:center;font-size:11px;color:var(--ink-light);margin-top:24px;line-height:1.5;border-top:1px solid var(--border);padding-top:14px;}
+  .stage{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:26px 22px;position:relative;overflow:hidden;}
+  .stage::before{content:'';position:absolute;top:-40px;left:-40px;width:220px;height:180px;background:var(--mint);opacity:.5;transform:rotate(-18deg);z-index:0;}
+  .stage > *{position:relative;z-index:1;}
+  .navybox{background:var(--navy);color:#fff;border-radius:8px;padding:14px 16px;font-weight:700;font-size:13px;text-align:center;line-height:1.25;letter-spacing:.02em;text-transform:uppercase;}
+  .arrow{color:var(--navy);font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+
+  .plan-top{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin-bottom:8px;}
+  .plan-top .navybox{width:230px;text-align:left;}
+  .downar{font-size:20px;color:var(--navy);margin-left:100px;}
+  .bar{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:8px;overflow:hidden;}
+  .bar .cell{background:var(--navy-light);color:#fff;padding:16px 14px;border-right:1.5px solid #fff;}
+  .bar .cell:last-child{border-right:none;}
+  .bar .ct{font-weight:700;font-size:13px;text-transform:uppercase;margin-bottom:8px;letter-spacing:.03em;}
+  .bar .cd{font-size:11.5px;line-height:1.45;text-transform:uppercase;opacity:.95;}
+  .plan-bottom{display:flex;justify-content:flex-end;margin-top:8px;}
+  .downar2{font-size:20px;color:var(--navy);margin-right:80px;}
+  .endbox{background:var(--navy);color:#fff;border-radius:8px;padding:16px 26px;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.02em;display:inline-block;}
+  @media(max-width:640px){.bar{grid-template-columns:1fr 1fr;}}
+</style></head>
+<body><div class="wrap">
+  <div class="head"><h1>The Marketing Plan</h1>
+    <p>Developing a marketing plan means moving through four steps — objectives, segments, positioning, and programs — ending in a concrete set of actions built on the 7 Ps of marketing.</p>
+    <div class="src">Source: "Segmentation, targeting and positioning for social entrepreneurship" slides by Marta Giovannetti</div></div>
+  <div class="stage">
+    <div class="plan-top">
+      <div class="navybox">Development and implementation of marketing plans</div>
+      <div class="downar">↓</div>
+    </div>
+    <div class="bar">
+      <div class="cell"><div class="ct">Objectives</div><div class="cd">Set clear, realistic and measurable objectives.</div></div>
+      <div class="cell"><div class="ct">Segments</div><div class="cd">Research your existing customers and profile your selected target segments.</div></div>
+      <div class="cell"><div class="ct">Positioning</div><div class="cd">Who you are and how you're different. Consider the customer value proposition.</div></div>
+      <div class="cell"><div class="ct">Programs</div><div class="cd">List your marketing actions according to the 7 Ps of marketing.</div></div>
+    </div>
+    <div class="plan-bottom"><div class="downar2">↓</div></div>
+    <div style="text-align:right;"><span class="endbox">7 Ps of Marketing</span></div>
+  </div>
+  <div class="foot">ERUA e-Course · Foundations of Social Entrepreneurship Management &amp; the Business Plan · CC BY-NC 4.0</div>
+</div></body></html>
