@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stages of Team Development</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4FBF7;--ink:#1A2E1F;--ink-light:#4A6455;--accent:#1A6B3C;--accent-light:#D4F0E0;--border:#C8E0D2;--navy:#2E3A8C;--navy-dark:#1F2A6E;--navy-light:#6B77C4;--navy-pale:#8b95d6;--mint:#C9F5DC;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);padding:24px 16px 44px;}
+  .wrap{max-width:940px;margin:0 auto;}
+  .head{margin-bottom:18px;}
+  .head h1{font-family:'DM Serif Display',serif;font-size:clamp(22px,4.5vw,32px);color:var(--navy);margin-bottom:6px;letter-spacing:.01em;}
+  .head p{font-size:13.5px;color:var(--ink-light);line-height:1.6;max-width:680px;}
+  .src{font-size:11px;color:var(--ink-light);font-style:italic;margin-top:10px;}
+  .foot{text-align:center;font-size:11px;color:var(--ink-light);margin-top:24px;line-height:1.5;border-top:1px solid var(--border);padding-top:14px;}
+  .stage{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:26px 22px;position:relative;overflow:hidden;}
+  .stage::before{content:'';position:absolute;top:-40px;left:-40px;width:220px;height:180px;background:var(--mint);opacity:.5;transform:rotate(-18deg);z-index:0;}
+  .stage > *{position:relative;z-index:1;}
+  .navybox{background:var(--navy);color:#fff;border-radius:8px;padding:14px 16px;font-weight:700;font-size:13px;text-align:center;line-height:1.25;letter-spacing:.02em;text-transform:uppercase;}
+  .arrow{color:var(--navy);font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+
+  body{display:flex;align-items:center;justify-content:center;min-height:100vh;}
+  .wrap{max-width:820px;}
+  .head{text-align:center;}.head p{margin:0 auto;}
+  .stages{display:flex;align-items:stretch;justify-content:center;gap:0;flex-wrap:wrap;}
+  .stg{flex:1;min-width:120px;text-align:center;padding:0 6px;position:relative;}
+  .stg .circle{width:56px;height:56px;border-radius:50%;background:var(--accent-light);border:2.5px solid var(--accent);color:var(--accent);font-size:24px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-weight:700;}
+  .stg .nm{font-family:'DM Serif Display',serif;font-size:17px;color:var(--navy);margin-bottom:4px;}
+  .stg .ds{font-size:11.5px;color:var(--ink-light);line-height:1.4;}
+  .stg.opt .circle{background:#F0F0F5;border-color:var(--navy-light);color:var(--navy-light);border-style:dashed;}
+  .stg.opt .nm{color:var(--navy-light);}
+  .connector{position:absolute;top:28px;right:-8px;width:16px;color:var(--accent);font-size:18px;z-index:2;}
+  @media(max-width:640px){.stages{flex-direction:column;gap:12px;}.connector{display:none;}}
+</style></head>
+<body><div class="wrap">
+  <div class="head"><h1>Stages of Team Development</h1>
+    <p>Teams don't start effective — they grow through predictable stages. Knowing them helps a founder support a team through the rough early phases toward high performance.</p>
+    <div class="src">Source: "Team management and organizational structure" slides by Alberto Zanutto (Tuckman's model)</div></div>
+  <div class="stage"><div class="stages">
+    <div class="stg"><div class="circle">🤝</div><div class="nm">Forming</div><div class="ds">Coming together, polite, finding footing</div><span class="connector">→</span></div>
+    <div class="stg"><div class="circle">⚡</div><div class="nm">Storming</div><div class="ds">Friction, differences, testing roles</div><span class="connector">→</span></div>
+    <div class="stg"><div class="circle">🔧</div><div class="nm">Norming</div><div class="ds">Settling, shared norms, trust builds</div><span class="connector">→</span></div>
+    <div class="stg"><div class="circle">🚀</div><div class="nm">Performing</div><div class="ds">Working well, focused on the goal</div><span class="connector">→</span></div>
+    <div class="stg opt"><div class="circle">🌙</div><div class="nm">Adjourning</div><div class="ds">Wrapping up, moving on</div></div>
+  </div></div>
+  <div class="foot">ERUA e-Course · Foundations of Social Entrepreneurship Management &amp; the Business Plan · CC BY-NC 4.0</div>
+</div></body></html>

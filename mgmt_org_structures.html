@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organisational Structures</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4FBF7;--ink:#1A2E1F;--ink-light:#4A6455;--accent:#1A6B3C;--accent-light:#D4F0E0;--border:#C8E0D2;--navy:#2E3A8C;--navy-dark:#1F2A6E;--navy-light:#6B77C4;--navy-pale:#8b95d6;--mint:#C9F5DC;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);padding:24px 16px 44px;}
+  .wrap{max-width:940px;margin:0 auto;}
+  .head{margin-bottom:18px;}
+  .head h1{font-family:'DM Serif Display',serif;font-size:clamp(22px,4.5vw,32px);color:var(--navy);margin-bottom:6px;letter-spacing:.01em;}
+  .head p{font-size:13.5px;color:var(--ink-light);line-height:1.6;max-width:680px;}
+  .src{font-size:11px;color:var(--ink-light);font-style:italic;margin-top:10px;}
+  .foot{text-align:center;font-size:11px;color:var(--ink-light);margin-top:24px;line-height:1.5;border-top:1px solid var(--border);padding-top:14px;}
+  .stage{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:26px 22px;position:relative;overflow:hidden;}
+  .stage::before{content:'';position:absolute;top:-40px;left:-40px;width:220px;height:180px;background:var(--mint);opacity:.5;transform:rotate(-18deg);z-index:0;}
+  .stage > *{position:relative;z-index:1;}
+  .navybox{background:var(--navy);color:#fff;border-radius:8px;padding:14px 16px;font-weight:700;font-size:13px;text-align:center;line-height:1.25;letter-spacing:.02em;text-transform:uppercase;}
+  .arrow{color:var(--navy);font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:20px;}
+  .tab{font-family:'DM Sans',sans-serif;font-size:12.5px;font-weight:600;padding:8px 16px;border-radius:99px;border:1.5px solid var(--border);background:#fff;color:var(--ink-light);cursor:pointer;transition:all .15s;}
+  .tab:hover{border-color:var(--navy);color:var(--navy);}
+  .tab.active{background:var(--navy);border-color:var(--navy);color:#fff;}
+  .pane{display:none;animation:fade .3s ease both;}
+  .pane.active{display:block;}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+  .pane h2{font-family:'DM Serif Display',serif;font-size:22px;color:var(--navy);text-align:center;margin-bottom:4px;}
+  .pane .desc{font-size:12.5px;color:var(--ink-light);line-height:1.55;text-align:center;max-width:620px;margin:0 auto 22px;}
+  /* org chart boxes */
+  .node{background:var(--navy);color:#fff;border-radius:7px;padding:11px 16px;font-size:12.5px;font-weight:600;text-align:center;display:inline-block;min-width:110px;}
+  .chart{display:flex;flex-direction:column;align-items:center;}
+  .lvl{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .vbar{width:2px;height:16px;background:var(--navy);}
+  .rowline{width:70%;height:2px;background:var(--navy);margin:0 auto 6px;}
+  .note{margin-top:16px;text-align:center;font-size:12px;color:var(--navy);font-style:italic;background:#E0E3F5;border-radius:10px;padding:8px 14px;display:inline-block;}
+  .noteb{display:flex;justify-content:center;}
+  /* matrix */
+  .mtx{border-collapse:collapse;margin:0 auto;font-size:11.5px;}
+  .mtx th{background:var(--navy);color:#fff;padding:9px 11px;font-weight:600;border:1px solid #fff;text-align:center;}
+  .mtx td{border:1px solid var(--border);padding:14px 11px;text-align:center;color:var(--ink-light);}
+  .mtx .rowh{background:#EDF2EE;color:var(--navy);font-weight:600;text-align:left;}
+  .mtx .dot{width:9px;height:9px;background:var(--navy);border-radius:50%;display:inline-block;}
+  /* summary cards */
+  .sumgrid{display:grid;grid-template-columns:1fr;gap:10px;max-width:680px;margin:0 auto;}
+  .sumc{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1.5px solid var(--border);border-left-width:5px;border-left-color:var(--navy);border-radius:12px;padding:12px 15px;}
+  .sumc .n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  .sumc .b{font-size:12.5px;line-height:1.5;color:var(--ink-light);}
+  .sumc .b strong{color:var(--navy);}
+  @media(max-width:560px){.node{min-width:84px;font-size:11px;padding:9px 10px;}}
+</style></head>
+<body><div class="wrap">
+  <div class="head" style="text-align:center;"><h1>Organisational Structures</h1>
+    <p style="margin:0 auto;">How a venture arranges people and reporting lines. Each structure fits a different size, environment, and stage — from a small founding team to a large, diversified organisation.</p>
+    <div class="src">Source: "Team management and organizational structure" slides by Alberto Zanutto, adapting Mintzberg's configurations</div></div>
+  <div class="stage">
+    <div class="tabs">
+      <button class="tab active" onclick="show(0)">Simple</button>
+      <button class="tab" onclick="show(1)">Functional</button>
+      <button class="tab" onclick="show(2)">Divisional</button>
+      <button class="tab" onclick="show(3)">Matrix</button>
+      <button class="tab" onclick="show(4)">The 5 configurations</button>
+    </div>
+
+    <!-- SIMPLE -->
+    <div class="pane active" id="p0">
+      <h2>Simple structure</h2>
+      <div class="desc">The entrepreneurial start-up: strategic top plus operating core, centralised and directly supervised. Small, familiar, personalistic — suited to a simple, dynamic environment.</div>
+      <div class="chart">
+        <div class="lvl"><span class="node">Direction</span></div>
+        <div class="vbar"></div>
+        <div class="lvl"><span class="node">Assistant</span></div>
+        <div class="vbar"></div>
+        <div class="rowline"></div>
+        <div class="lvl">
+          <span class="node">Administration</span><span class="node">R&amp;D</span><span class="node">Procurement</span><span class="node">Production</span><span class="node">Sales</span>
+        </div>
+      </div>
+      <div class="noteb"><div class="note">Small · Familiar · Personalistic</div></div>
+    </div>
+
+    <!-- FUNCTIONAL -->
+    <div class="pane" id="p1">
+      <h2>Functional structure</h2>
+      <div class="desc">Work grouped by function under a general manager. Clear specialisation, but coordination across functions can be slow — a form of the machine bureaucracy, suited to stable environments.</div>
+      <div class="chart">
+        <div class="lvl"><span class="node">CEO / General manager</span></div>
+        <div class="vbar"></div>
+        <div class="lvl">
+          <span class="node">Secretariat</span><span class="node">Information systems</span><span class="node">Finance</span><span class="node">Human Resources</span><span class="node">Marketing</span>
+        </div>
+        <div class="vbar"></div>
+        <div class="rowline"></div>
+        <div class="lvl">
+          <span class="node">R&amp;D</span><span class="node">Production</span><span class="node">Sales</span>
+        </div>
+      </div>
+      <div class="noteb"><div class="note">High specialisation · stable · weak cross-function coordination · slow</div></div>
+    </div>
+
+    <!-- DIVISIONAL -->
+    <div class="pane" id="p2">
+      <h2>Divisional structure</h2>
+      <div class="desc">A diversified organisation split into divisions by product or market, each run by a division manager and coordinated by results. Each division itself looks like a machine bureaucracy.</div>
+      <div class="chart">
+        <div class="lvl"><span class="node">General management</span></div>
+        <div class="vbar"></div>
+        <div class="rowline"></div>
+        <div class="lvl">
+          <span class="node">Division A<br><span style="font-weight:400;font-size:10px;opacity:.85;">product / market</span></span>
+          <span class="node">Division B<br><span style="font-weight:400;font-size:10px;opacity:.85;">product / market</span></span>
+          <span class="node">Division C<br><span style="font-weight:400;font-size:10px;opacity:.85;">product / market</span></span>
+        </div>
+        <div class="lvl" style="margin-top:8px;gap:10px;align-items:flex-start;">
+          <div style="display:flex;flex-direction:column;gap:5px;"><span class="node" style="min-width:88px;font-size:10.5px;">R&amp;D · Prod. · Sales</span></div>
+          <div style="display:flex;flex-direction:column;gap:5px;"><span class="node" style="min-width:88px;font-size:10.5px;">R&amp;D · Prod. · Sales</span></div>
+          <div style="display:flex;flex-direction:column;gap:5px;"><span class="node" style="min-width:88px;font-size:10.5px;">R&amp;D · Prod. · Sales</span></div>
+        </div>
+      </div>
+      <div class="noteb"><div class="note">Divisions grouped by product / market · coordinated by results</div></div>
+    </div>
+
+    <!-- MATRIX -->
+    <div class="pane" id="p3">
+      <h2>Matrix structure</h2>
+      <div class="desc">Product managers work across functional departments, so each person answers to two lines at once. Flexible for complex, project-based work — but demands strong coordination.</div>
+      <div style="overflow-x:auto;">
+      <table class="mtx">
+        <tr><th>Product Direction</th><th>Research and Development</th><th>Production</th><th>Marketing and sales</th><th>After-sales service</th></tr>
+        <tr><td class="rowh">Product manager 1</td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td></tr>
+        <tr><td class="rowh">Product manager 2</td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td></tr>
+        <tr><td class="rowh">Product manager 3</td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td></tr>
+        <tr><td class="rowh">Product manager 4</td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td></tr>
+      </table>
+      </div>
+      <div class="noteb"><div class="note">General manager / CEO on top · dual reporting lines</div></div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="pane" id="p4">
+      <h2>The 5 fundamental Mintzberg configurations</h2>
+      <div class="desc">Pure models — real organisations combine them (a hybrid, like a symphony orchestra). Each suits a different environment.</div>
+      <div class="sumgrid">
+        <div class="sumc"><div class="n">1</div><div class="b"><strong>Simple structure</strong> — entrepreneurial start-up; strategic top + operating core; centralised, direct supervision. Suited to a simple, dynamic environment (small enterprise).</div></div>
+        <div class="sumc"><div class="n">2</div><div class="b"><strong>Machine bureaucracy</strong> — mass production; coordination by hierarchy and standardisation. Suited to a simple, stable environment (car manufacturing, insurance).</div></div>
+        <div class="sumc"><div class="n">3</div><div class="b"><strong>Professional bureaucracy</strong> — high formalisation, low centralisation; coordination by standardised skills; strong professional core. Suited to complex, stable environments (universities, audit).</div></div>
+        <div class="sumc"><div class="n">4</div><div class="b"><strong>Divisional structure</strong> — divisions by product/market; coordination by standardised results; strong middle line. Suited to environments not too complex or unstable.</div></div>
+        <div class="sumc"><div class="n">5</div><div class="b"><strong>Adhocracy</strong> — manages innovation; little formalisation, mutual adjustment, high expertise. Suited to complex, dynamic environments (consulting, aerospace, computing).</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">ERUA e-Course · Foundations of Social Entrepreneurship Management &amp; the Business Plan · CC BY-NC 4.0</div>
+</div>
+<script>
+  function show(n){
+    document.querySelectorAll('.pane').forEach(function(p,i){p.classList.toggle('active',i===n);});
+    document.querySelectorAll('.tab').forEach(function(t,i){t.classList.toggle('active',i===n);});
+  }
+</script>
+</body></html>
