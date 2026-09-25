@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Targeting</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4FBF7;--ink:#1A2E1F;--ink-light:#4A6455;--accent:#1A6B3C;--accent-light:#D4F0E0;--border:#C8E0D2;--navy:#2E3A8C;--navy-dark:#1F2A6E;--navy-light:#6B77C4;--navy-pale:#8b95d6;--mint:#C9F5DC;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);padding:24px 16px 44px;}
+  .wrap{max-width:940px;margin:0 auto;}
+  .head{margin-bottom:18px;}
+  .head h1{font-family:'DM Serif Display',serif;font-size:clamp(22px,4.5vw,32px);color:var(--navy);margin-bottom:6px;letter-spacing:.01em;}
+  .head p{font-size:13.5px;color:var(--ink-light);line-height:1.6;max-width:680px;}
+  .src{font-size:11px;color:var(--ink-light);font-style:italic;margin-top:10px;}
+  .foot{text-align:center;font-size:11px;color:var(--ink-light);margin-top:24px;line-height:1.5;border-top:1px solid var(--border);padding-top:14px;}
+  .stage{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:26px 22px;position:relative;overflow:hidden;}
+  .stage::before{content:'';position:absolute;top:-40px;left:-40px;width:220px;height:180px;background:var(--mint);opacity:.5;transform:rotate(-18deg);z-index:0;}
+  .stage > *{position:relative;z-index:1;}
+  .navybox{background:var(--navy);color:#fff;border-radius:8px;padding:14px 16px;font-weight:700;font-size:13px;text-align:center;line-height:1.25;letter-spacing:.02em;text-transform:uppercase;}
+  .arrow{color:var(--navy);font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+
+  .sec-label{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);display:inline-block;padding:4px 12px;border-radius:99px;margin:0 0 16px;}
+  .legend{text-align:right;font-size:11px;color:var(--ink-light);margin-bottom:10px;font-weight:600;}
+  .grids{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+  .gcard{text-align:center;}
+  .pmgrid{display:grid;grid-template-columns:auto repeat(3,1fr);grid-template-rows:auto repeat(3,1fr);gap:0;max-width:150px;margin:0 auto 10px;}
+  .pmgrid .mh{font-weight:700;color:var(--navy);font-size:11px;padding-bottom:3px;}
+  .pmgrid .ph{font-weight:700;color:var(--navy);font-size:11px;padding-right:4px;display:flex;align-items:center;justify-content:center;}
+  .pmgrid .c{border:1.4px solid var(--navy);aspect-ratio:1;background:#fff;}
+  .pmgrid .c.on{background:var(--navy-pale);}
+  .gcap{font-size:11px;font-weight:700;color:var(--ink-light);text-transform:uppercase;line-height:1.3;letter-spacing:.01em;}
+  .gsub{font-size:10px;font-weight:500;color:var(--ink-light);text-transform:none;display:block;margin-top:2px;}
+  .divider{border:none;border-top:1px solid var(--border);margin:32px 0 26px;}
+  .trow{display:grid;grid-template-columns:1fr auto 1fr auto;gap:12px;align-items:center;margin-bottom:14px;}
+  .tbox{background:var(--navy);color:#fff;border-radius:6px;padding:12px;font-size:11.5px;font-weight:600;text-transform:uppercase;text-align:center;line-height:1.5;}
+  .tbox .ln{display:block;}
+  .tarrows{display:flex;flex-direction:column;gap:6px;align-items:center;color:var(--navy);font-size:18px;font-weight:700;}
+  .tlabel{font-size:12.5px;font-weight:700;color:var(--navy);text-transform:uppercase;text-decoration:underline;line-height:1.3;}
+  @media(max-width:760px){.grids{grid-template-columns:repeat(2,1fr);gap:22px;}.trow{grid-template-columns:1fr;}.tlabel{text-align:center;}.legend{text-align:center;}}
+</style></head>
+<body><div class="wrap">
+  <div class="head"><h1>Targeting</h1>
+    <p>Once the market is segmented, a venture decides how much of it to serve — which product-market combinations to cover, and how to match its marketing mix to the segments it chooses.</p>
+    <div class="src">Source: "Segmentation, targeting and positioning for social entrepreneurship" slides by Marta Giovannetti</div></div>
+
+  <div class="stage">
+    <span class="sec-label">Market coverage patterns</span>
+    <div class="legend">P = Product · M = Market</div>
+    <div class="grids">
+      <div class="gcard">
+        <div class="pmgrid">
+          <div></div><div class="mh">M₁</div><div class="mh">M₂</div><div class="mh">M₃</div>
+          <div class="ph">P₁</div><div class="c"></div><div class="c"></div><div class="c"></div>
+          <div class="ph">P₂</div><div class="c on"></div><div class="c"></div><div class="c"></div>
+          <div class="ph">P₃</div><div class="c"></div><div class="c"></div><div class="c"></div>
+        </div>
+        <div class="gcap">Concentrated<span class="gsub">1 segment · 1 product</span></div>
+      </div>
+      <div class="gcard">
+        <div class="pmgrid">
+          <div></div><div class="mh">M₁</div><div class="mh">M₂</div><div class="mh">M₃</div>
+          <div class="ph">P₁</div><div class="c"></div><div class="c"></div><div class="c"></div>
+          <div class="ph">P₂</div><div class="c on"></div><div class="c on"></div><div class="c on"></div>
+          <div class="ph">P₃</div><div class="c"></div><div class="c"></div><div class="c"></div>
+        </div>
+        <div class="gcap">Product specialization<span class="gsub">1 product · all markets</span></div>
+      </div>
+      <div class="gcard">
+        <div class="pmgrid">
+          <div></div><div class="mh">M₁</div><div class="mh">M₂</div><div class="mh">M₃</div>
+          <div class="ph">P₁</div><div class="c on"></div><div class="c"></div><div class="c"></div>
+          <div class="ph">P₂</div><div class="c on"></div><div class="c"></div><div class="c"></div>
+          <div class="ph">P₃</div><div class="c on"></div><div class="c"></div><div class="c"></div>
+        </div>
+        <div class="gcap">Market specialization<span class="gsub">all products · 1 market</span></div>
+      </div>
+      <div class="gcard">
+        <div class="pmgrid">
+          <div></div><div class="mh">M₁</div><div class="mh">M₂</div><div class="mh">M₃</div>
+          <div class="ph">P₁</div><div class="c"></div><div class="c"></div><div class="c on"></div>
+          <div class="ph">P₂</div><div class="c on"></div><div class="c"></div><div class="c"></div>
+          <div class="ph">P₃</div><div class="c"></div><div class="c on"></div><div class="c"></div>
+        </div>
+        <div class="gcap">Selective specialization<span class="gsub">chosen combinations</span></div>
+      </div>
+      <div class="gcard">
+        <div class="pmgrid">
+          <div></div><div class="mh">M₁</div><div class="mh">M₂</div><div class="mh">M₃</div>
+          <div class="ph">P₁</div><div class="c on"></div><div class="c on"></div><div class="c on"></div>
+          <div class="ph">P₂</div><div class="c on"></div><div class="c on"></div><div class="c on"></div>
+          <div class="ph">P₃</div><div class="c on"></div><div class="c on"></div><div class="c on"></div>
+        </div>
+        <div class="gcap">Market coverage<span class="gsub">all products · all markets</span></div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <span class="sec-label">Targeting strategies</span>
+    <div class="trow">
+      <div class="tbox">Marketing mix</div>
+      <div class="tarrows">➡</div>
+      <div class="tbox">Market</div>
+      <div class="tlabel">Undifferentiated marketing</div>
+    </div>
+    <div class="trow">
+      <div class="tbox"><span class="ln">Marketing mix 1</span><span class="ln">Marketing mix 2</span><span class="ln">Marketing mix 3</span></div>
+      <div class="tarrows">➡<span>➡</span><span>➡</span></div>
+      <div class="tbox"><span class="ln">Market segment 1</span><span class="ln">Market segment 2</span><span class="ln">Market segment 3</span></div>
+      <div class="tlabel">Differentiated marketing</div>
+    </div>
+    <div class="trow">
+      <div class="tbox">Marketing mix</div>
+      <div class="tarrows">➡</div>
+      <div class="tbox"><span class="ln">Market segment 1</span><span class="ln">Market segment 2</span><span class="ln">Market segment 3</span></div>
+      <div class="tlabel">Concentrated marketing</div>
+    </div>
+  </div>
+  <div class="foot">ERUA e-Course · Foundations of Social Entrepreneurship Management &amp; the Business Plan · CC BY-NC 4.0</div>
+</div></body></html>
