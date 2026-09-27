@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Diversity Wheel</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4FBF7;--ink:#1A2E1F;--ink-light:#4A6455;--accent:#1A6B3C;--accent-light:#D4F0E0;--border:#C8E0D2;--navy:#2E3A8C;--navy-dark:#1F2A6E;--navy-light:#6B77C4;--navy-pale:#8b95d6;--mint:#C9F5DC;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);padding:24px 16px 44px;}
+  .wrap{max-width:940px;margin:0 auto;}
+  .head{margin-bottom:18px;}
+  .head h1{font-family:'DM Serif Display',serif;font-size:clamp(22px,4.5vw,32px);color:var(--navy);margin-bottom:6px;letter-spacing:.01em;}
+  .head p{font-size:13.5px;color:var(--ink-light);line-height:1.6;max-width:680px;}
+  .src{font-size:11px;color:var(--ink-light);font-style:italic;margin-top:10px;}
+  .foot{text-align:center;font-size:11px;color:var(--ink-light);margin-top:24px;line-height:1.5;border-top:1px solid var(--border);padding-top:14px;}
+  .stage{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:26px 22px;position:relative;overflow:hidden;}
+  .stage::before{content:'';position:absolute;top:-40px;left:-40px;width:220px;height:180px;background:var(--mint);opacity:.5;transform:rotate(-18deg);z-index:0;}
+  .stage > *{position:relative;z-index:1;}
+  .navybox{background:var(--navy);color:#fff;border-radius:8px;padding:14px 16px;font-weight:700;font-size:13px;text-align:center;line-height:1.25;letter-spacing:.02em;text-transform:uppercase;}
+  .arrow{color:var(--navy);font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+
+  .cols{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center;}
+  .legend{display:flex;gap:16px;justify-content:center;margin-bottom:10px;flex-wrap:wrap;}
+  .lg{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--ink-light);font-weight:600;}
+  .sw{width:14px;height:14px;border-radius:4px;}
+  .aoa h3{font-family:'DM Serif Display',serif;font-size:18px;color:var(--accent);margin-bottom:10px;}
+  .aoa .item{display:flex;align-items:center;gap:9px;background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--accent);border-radius:9px;padding:9px 12px;margin-bottom:7px;font-size:12.5px;color:var(--ink);}
+  @media(max-width:640px){.cols{grid-template-columns:1fr;}}
+</style></head>
+<body><div class="wrap">
+  <div class="head" style="text-align:center;"><h1>The Diversity Wheel</h1>
+    <p style="margin:0 auto;">Each person is a "jigsaw puzzle" of traits — some visible, many not. The wheel sorts them into core primary dimensions and acquired secondary ones.</p>
+    <div class="src">Source: "Team management and organizational structure" slides by Alberto Zanutto (diversity wheel: Loden &amp; Rosener, 1991)</div></div>
+  <div class="stage">
+    <div class="legend">
+      <div class="lg"><span class="sw" style="background:#CDE9D8;"></span>Primary dimensions (core, largely fixed)</div>
+      <div class="lg"><span class="sw" style="background:#EAF6EF;border:1px solid #CDE9D8;"></span>Secondary dimensions (acquired, changeable)</div>
+    </div>
+    <div class="cols">
+      <div>
+<svg viewBox="0 0 470 470" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;font-family:DM Sans, sans-serif;">
+  <circle cx="235" cy="235" r="225" fill="#EAF6EF"/>
+  <circle cx="235" cy="235" r="150" fill="#CDE9D8"/>
+  <circle cx="235" cy="235" r="66" fill="#1A6B3C"/>
+  <text x="235" y="231" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">The</text>
+  <text x="235" y="249" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">person</text>
+  <text x="235" y="131" text-anchor="middle" font-size="11" font-weight="700" fill="#0D3D24">Age</text>
+<text x="329" y="185" text-anchor="middle" font-size="11" font-weight="700" fill="#0D3D24">Gender</text>
+<text x="329" y="293" text-anchor="middle" font-size="11" font-weight="700" fill="#0D3D24">Race</text>
+<text x="235" y="347" text-anchor="middle" font-size="11" font-weight="700" fill="#0D3D24">Ethnicity</text>
+<text x="141" y="284" text-anchor="middle" font-size="11" font-weight="700" fill="#0D3D24">Physical abilities<tspan x="141" dy="13">/ disability</tspan></text>
+<text x="141" y="176" text-anchor="middle" font-size="11" font-weight="700" fill="#0D3D24">Sexual<tspan x="141" dy="13">orientation</tspan></text>
+
+  <text x="235" y="49" text-anchor="middle" font-size="10.5" font-weight="500" fill="#4A6455">Education</text>
+<text x="369" y="96" text-anchor="middle" font-size="10.5" font-weight="500" fill="#4A6455">Work<tspan x="369" dy="12.5">experience</tspan></text>
+<text x="425" y="239" text-anchor="middle" font-size="10.5" font-weight="500" fill="#4A6455">Income</text>
+<text x="369" y="373" text-anchor="middle" font-size="10.5" font-weight="500" fill="#4A6455">Religion</text>
+<text x="235" y="420" text-anchor="middle" font-size="10.5" font-weight="500" fill="#4A6455">Marital<tspan x="235" dy="12.5">status</tspan></text>
+<text x="101" y="364" text-anchor="middle" font-size="10.5" font-weight="500" fill="#4A6455">Parental<tspan x="101" dy="12.5">status</tspan></text>
+<text x="45" y="230" text-anchor="middle" font-size="10.5" font-weight="500" fill="#4A6455">Geographic<tspan x="45" dy="12.5">location</tspan></text>
+<text x="101" y="105" text-anchor="middle" font-size="10.5" font-weight="500" fill="#4A6455">Appearance</text>
+
+</svg>      </div>
+      <div class="aoa">
+        <h3>Typical areas of action</h3>
+        <div class="item">👥 Gender</div>
+        <div class="item">🎂 Generational differences</div>
+        <div class="item">🌍 Ethnic, cultural and religious differences</div>
+        <div class="item">🏳️‍🌈 Sexual orientation and gender identity</div>
+        <div class="item">♿ Skills / disabilities</div>
+      </div>
+    </div>
+  </div>
+  <div class="foot">ERUA e-Course · Foundations of Social Entrepreneurship Management &amp; the Business Plan · CC BY-NC 4.0</div>
+</div></body></html>
