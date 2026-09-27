@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SWOT Analysis</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4FBF7;--ink:#1A2E1F;--ink-light:#4A6455;--accent:#1A6B3C;--accent-light:#D4F0E0;--border:#C8E0D2;--navy:#2E3A8C;--navy-dark:#1F2A6E;--navy-light:#6B77C4;--navy-pale:#8b95d6;--mint:#C9F5DC;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);padding:24px 16px 44px;}
+  .wrap{max-width:940px;margin:0 auto;}
+  .head{margin-bottom:18px;}
+  .head h1{font-family:'DM Serif Display',serif;font-size:clamp(22px,4.5vw,32px);color:var(--navy);margin-bottom:6px;letter-spacing:.01em;}
+  .head p{font-size:13.5px;color:var(--ink-light);line-height:1.6;max-width:680px;}
+  .src{font-size:11px;color:var(--ink-light);font-style:italic;margin-top:10px;}
+  .foot{text-align:center;font-size:11px;color:var(--ink-light);margin-top:24px;line-height:1.5;border-top:1px solid var(--border);padding-top:14px;}
+  .stage{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:26px 22px;position:relative;overflow:hidden;}
+  .stage::before{content:'';position:absolute;top:-40px;left:-40px;width:220px;height:180px;background:var(--mint);opacity:.5;transform:rotate(-18deg);z-index:0;}
+  .stage > *{position:relative;z-index:1;}
+  .navybox{background:var(--navy);color:#fff;border-radius:8px;padding:14px 16px;font-weight:700;font-size:13px;text-align:center;line-height:1.25;letter-spacing:.02em;text-transform:uppercase;}
+  .arrow{color:var(--navy);font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+
+  body{display:flex;align-items:center;justify-content:center;min-height:100vh;}
+  .wrap{max-width:720px;}
+  .head{text-align:center;}.head p{margin:0 auto;}
+  .swot{display:grid;grid-template-columns:auto 1fr 1fr;grid-template-rows:auto 1fr 1fr;gap:8px;max-width:640px;margin:0 auto;}
+  .axh{display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-light);text-align:center;padding:4px;}
+  .axv{writing-mode:vertical-rl;transform:rotate(180deg);}
+  .corner{}
+  .q{border-radius:12px;padding:16px 16px 14px;color:#fff;}
+  .q h3{font-family:'DM Serif Display',serif;font-size:19px;margin-bottom:6px;}
+  .q p{font-size:11.5px;line-height:1.45;opacity:.95;}
+  .qs{background:#1A6B3C;}
+  .qw{background:#B0392E;}
+  .qo{background:#2E7D5B;}
+  .qt{background:#C25E1E;}
+  .note{text-align:center;font-size:12px;color:var(--ink-light);margin-top:16px;line-height:1.5;font-style:italic;}
+  @media(max-width:560px){.swot{grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto auto;}.axv{writing-mode:horizontal-tb;transform:none;grid-column:1/3;}.corner{display:none;}}
+</style></head>
+<body><div class="wrap">
+  <div class="head"><h1>SWOT Analysis</h1>
+    <p>SWOT brings together the two analyses in the strategic process: what's happening inside the firm, and what's happening outside in its environment.</p>
+    <div class="src">Source: "Introduction to management and strategic management" slides by Desiderio J. García Almeida</div></div>
+  <div class="stage">
+    <div class="swot">
+      <div class="corner"></div>
+      <div class="axh">Helpful</div>
+      <div class="axh">Harmful</div>
+      <div class="axh axv">Internal<br>(the firm)</div>
+      <div class="q qs"><h3>Strengths</h3><p>Internal attributes and resources that support success — a loyal community, a strong mission, committed people.</p></div>
+      <div class="q qw"><h3>Weaknesses</h3><p>Internal factors that make success harder — a weak brand, thin funding, gaps in skills.</p></div>
+      <div class="axh axv">External<br>(environment)</div>
+      <div class="q qo"><h3>Opportunities</h3><p>External chances to seize — new needs, supportive policy, partnerships, shifting attitudes.</p></div>
+      <div class="q qt"><h3>Threats</h3><p>External risks to prepare for — changing regulations, rising costs, new competitors.</p></div>
+    </div>
+    <div class="note">The "S&amp;W" come from analysing the firm internally; the "O&amp;T" come from analysing the environment.</div>
+  </div>
+  <div class="foot">ERUA e-Course · Foundations of Social Entrepreneurship Management &amp; the Business Plan · CC BY-NC 4.0</div>
+</div></body></html>

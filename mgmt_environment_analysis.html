@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analysing the Environment</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F4FBF7;--ink:#1A2E1F;--ink-light:#4A6455;--accent:#1A6B3C;--accent-light:#D4F0E0;--border:#C8E0D2;--navy:#2E3A8C;--navy-dark:#1F2A6E;--navy-light:#6B77C4;--navy-pale:#8b95d6;--mint:#C9F5DC;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--ink);padding:24px 16px 44px;}
+  .wrap{max-width:940px;margin:0 auto;}
+  .head{margin-bottom:18px;}
+  .head h1{font-family:'DM Serif Display',serif;font-size:clamp(22px,4.5vw,32px);color:var(--navy);margin-bottom:6px;letter-spacing:.01em;}
+  .head p{font-size:13.5px;color:var(--ink-light);line-height:1.6;max-width:680px;}
+  .src{font-size:11px;color:var(--ink-light);font-style:italic;margin-top:10px;}
+  .foot{text-align:center;font-size:11px;color:var(--ink-light);margin-top:24px;line-height:1.5;border-top:1px solid var(--border);padding-top:14px;}
+  .stage{background:#fff;border:1.5px solid var(--border);border-radius:16px;padding:26px 22px;position:relative;overflow:hidden;}
+  .stage::before{content:'';position:absolute;top:-40px;left:-40px;width:220px;height:180px;background:var(--mint);opacity:.5;transform:rotate(-18deg);z-index:0;}
+  .stage > *{position:relative;z-index:1;}
+  .navybox{background:var(--navy);color:#fff;border-radius:8px;padding:14px 16px;font-weight:700;font-size:13px;text-align:center;line-height:1.25;letter-spacing:.02em;text-transform:uppercase;}
+  .arrow{color:var(--navy);font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .col h3{font-family:'DM Serif Display',serif;font-size:19px;color:var(--accent);text-align:center;margin-bottom:3px;}
+  .col .sub{font-size:11.5px;color:var(--ink-light);text-align:center;font-style:italic;margin-bottom:14px;}
+  .pestel{display:flex;flex-direction:column;gap:7px;}
+  .pf{display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--border);border-radius:9px;padding:9px 12px;}
+  .pf .ic{width:30px;height:30px;flex-shrink:0;border-radius:7px;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:15px;}
+  .pf .t{font-size:12.5px;color:var(--ink);}
+  .pf .t strong{color:var(--accent);}
+  .forces{display:flex;flex-direction:column;gap:7px;align-items:center;}
+  .center-force{background:var(--accent);color:#fff;border-radius:10px;padding:11px 14px;font-size:12.5px;font-weight:700;text-align:center;width:100%;text-transform:uppercase;letter-spacing:.02em;}
+  .force{background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--accent);border-radius:9px;padding:9px 12px;font-size:12px;color:var(--ink-light);width:100%;line-height:1.4;}
+  .force strong{color:var(--ink);}
+  @media(max-width:640px){.cols{grid-template-columns:1fr;gap:26px;}}
+</style></head>
+<body><div class="wrap">
+  <div class="head" style="text-align:center;"><h1>Analysing the Environment</h1>
+    <p style="margin:0 auto;">Before setting strategy, a venture reads two layers of its environment: the wide general environment, and the specific sector it competes in.</p>
+    <div class="src">Source: "Introduction to management and strategic management" slides by Desiderio J. García Almeida (PESTEL; Porter's five forces)</div></div>
+  <div class="stage"><div class="cols">
+    <div class="col">
+      <h3>PESTEL</h3>
+      <div class="sub">the general environment</div>
+      <div class="pestel">
+        <div class="pf"><div class="ic">🏛️</div><div class="t"><strong>Political</strong> — government, stability, policy direction</div></div>
+        <div class="pf"><div class="ic">💶</div><div class="t"><strong>Economic</strong> — growth, costs, purchasing power</div></div>
+        <div class="pf"><div class="ic">👥</div><div class="t"><strong>Social</strong> — attitudes, demographics, values</div></div>
+        <div class="pf"><div class="ic">💡</div><div class="t"><strong>Technological</strong> — innovation, new tools</div></div>
+        <div class="pf"><div class="ic">🌍</div><div class="t"><strong>Environmental</strong> — climate, sustainability, resources</div></div>
+        <div class="pf"><div class="ic">⚖️</div><div class="t"><strong>Legal</strong> — laws, regulations, standards</div></div>
+      </div>
+    </div>
+    <div class="col">
+      <h3>Porter's Five Forces</h3>
+      <div class="sub">the sector or industry</div>
+      <div class="forces">
+        <div class="force"><strong>Threat of new entrants</strong> — how easily others can enter</div>
+        <div class="force"><strong>Bargaining power of suppliers</strong> — how much leverage they hold</div>
+        <div class="center-force">Rivalry between established competitors</div>
+        <div class="force"><strong>Bargaining power of buyers</strong> — how much leverage customers hold</div>
+        <div class="force"><strong>Threat of substitutes</strong> — other ways to meet the same need</div>
+      </div>
+    </div>
+  </div></div>
+  <div class="foot">ERUA e-Course · Foundations of Social Entrepreneurship Management &amp; the Business Plan · CC BY-NC 4.0</div>
+</div></body></html>
